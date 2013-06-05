@@ -1,3 +1,5 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@using MultiTenant.Helpers
+@inherits System.Web.WebPages.StartPage 
+@{
+    Layout = LayoutHelper.GetLayout();
 }
