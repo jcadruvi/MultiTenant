@@ -8,5 +8,6 @@ namespace MultiTenant.Repository.Interfaces
 {
     public interface ITenantRepository
     {
+        void SetCurrentTenant(string host);
     }
 }

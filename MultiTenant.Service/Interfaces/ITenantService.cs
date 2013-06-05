@@ -8,5 +8,6 @@ namespace MultiTenant.Service.Interfaces
 {
     public interface ITenantService
     {
+        void SetCurrentTenant(string host);
     }
 }

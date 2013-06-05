@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTenant.Service", "Mult
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTenant.Repository", "MultiTenant.Repository\MultiTenant.Repository.csproj", "{C66FDB65-78B7-4DE3-9563-8D777823CDE7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTenant.Model", "MultiTenant.Model\MultiTenant.Model.csproj", "{03C5C70A-905E-4F14-9835-0CA2D23E6C85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{C66FDB65-78B7-4DE3-9563-8D777823CDE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C66FDB65-78B7-4DE3-9563-8D777823CDE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C66FDB65-78B7-4DE3-9563-8D777823CDE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03C5C70A-905E-4F14-9835-0CA2D23E6C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03C5C70A-905E-4F14-9835-0CA2D23E6C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03C5C70A-905E-4F14-9835-0CA2D23E6C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03C5C70A-905E-4F14-9835-0CA2D23E6C85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
