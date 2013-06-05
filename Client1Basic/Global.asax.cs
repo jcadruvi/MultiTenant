@@ -19,6 +19,7 @@ namespace Client1Basic
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            RegisterCustomViewEngines(ViewEngines.Engines);
         }
 
         /// <summary> 
@@ -29,7 +30,7 @@ namespace Client1Basic
         {
             viewEngines.Clear();
             //Remove this if there are complications.... 
-            viewEngines.Add(new MultiTenant.EmbeddedResourceViewEngine());
+            viewEngines.Add(new Generic.EmbeddedResourceViewEngine());
         }
     }
 }

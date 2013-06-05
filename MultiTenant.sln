@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTenant.Site", "MultiTenant.Site\MultiTenant.Site.csproj", "{F2A1F48E-265A-4103-84ED-742A64FEE6FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generic", "Generic\Generic.csproj", "{F2A1F48E-265A-4103-84ED-742A64FEE6FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client1Basic", "Client1Basic\Client1Basic.csproj", "{420DA021-46AD-4FD6-992A-F3CACAD709C9}"
 EndProject

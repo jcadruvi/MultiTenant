@@ -136,16 +136,16 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MultiTenant.Site\MultiTenant.Site.csproj">
+    <ProjectReference Include="..\Generic\Generic.csproj">
       <Project>{f2a1f48e-265a-4103-84ed-742a64fee6fa}</Project>
-      <Name>MultiTenant.Site</Name>
+      <Name>Generic</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Shared\_ClientLayoutPage.cshtml" />
+    <Content Include="Views\Shared\_ClientLayoutPage.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

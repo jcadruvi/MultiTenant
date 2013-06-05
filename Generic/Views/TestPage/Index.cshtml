@@ -1,0 +1,17 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@{
+    if (ViewBag.IsSetFromClient == true)
+    {
+        <p>I am set from the client : )</p>
+    }
+    else
+    {
+        <p>I am NOT SET from the client : (</p>
+    }
+}

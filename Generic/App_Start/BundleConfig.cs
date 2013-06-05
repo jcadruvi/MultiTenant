@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Optimization;
 
-namespace MultiTenant.App_Start
+namespace Generic.App_Start
 {
     public class BundleConfig
     {
