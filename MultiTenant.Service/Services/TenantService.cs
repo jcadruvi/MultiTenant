@@ -33,6 +33,14 @@ namespace MultiTenant.Service.Services
         {
             return _repository.GetRedirectPath(tenantId, originalPath);
         }
+        public IEnumerable<Tenant> GetTenants()
+        {
+            return _repository.GetTenants();
+        }
+        public Tenant SetCurrentTenant(int id)
+        {
+            return _repository.SetCurrentTenant(id);
+        }
         public Tenant SetCurrentTenant(string host)
         {
             return _repository.SetCurrentTenant(host);

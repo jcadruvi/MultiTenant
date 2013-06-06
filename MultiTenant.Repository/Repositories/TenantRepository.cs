@@ -182,6 +182,18 @@ namespace MultiTenant.Repository.Repositories
             }
             return null;
         }
+        public IEnumerable<Tenant> GetTenants()
+        {
+            return _tenants;
+        }
+        public Tenant SetCurrentTenant(int id)
+        {
+            var tenant = (from t in _tenants
+                          where t.Id == id
+                          select t).FirstOrDefault();
+            _currentTenant = tenant;
+            return _currentTenant;
+        }
         public Tenant SetCurrentTenant(string host) 
         {
             var tenant = (from t in _tenants

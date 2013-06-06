@@ -29,17 +29,21 @@ namespace MultiTenant
 
         protected void Application_BeginRequest()
         {
+            Tenant currentTenant;
             string[] host = Context.Request.Headers["Host"].Split(':');
             ITenantService tenantService = new TenantService(); 
+
             if (host.Length == 0)
             {
                 return;
             }
-            if (host[0] == "localhost")
+            currentTenant = host[0] == "localhost"
+                ? tenantService.GetCurrentTenant()
+                : tenantService.SetCurrentTenant(host[0]);
+            if (host[0] == "localhost" && currentTenant == null)
             {
-                host[0] = "bestbuy";
+                currentTenant = tenantService.SetCurrentTenant(1);
             }
-            Tenant currentTenant = tenantService.SetCurrentTenant(host[0]);
             if (currentTenant == null)
             {
                 return;
