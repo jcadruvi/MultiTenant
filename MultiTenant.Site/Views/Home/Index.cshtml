@@ -1,6 +1,18 @@
-﻿@{
+﻿@using MultiTenant.Helpers
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
+
+
+<script type="text/javascript">
+
+    (function() {
+        $('#menu').kendoMenu({
+            orientation: "vertical"
+        });
+    })()    
+
+</script>

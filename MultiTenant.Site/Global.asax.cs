@@ -8,9 +8,9 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using MultiTenant.Service.Interfaces;
 using MultiTenant.Service.Services;
-using Mvc4.App_Start;
+using MultiTenant.App_Start;
 
-namespace Mvc4
+namespace MultiTenant
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
