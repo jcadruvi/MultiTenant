@@ -44,6 +44,10 @@
     <Compile Include="Services\TenantService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MultiTenant.Model\MultiTenant.Model.csproj">
+      <Project>{03c5c70a-905e-4f14-9835-0ca2d23e6c85}</Project>
+      <Name>MultiTenant.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MultiTenant.Repository\MultiTenant.Repository.csproj">
       <Project>{c66fdb65-78b7-4de3-9563-8d777823cde7}</Project>
       <Name>MultiTenant.Repository</Name>

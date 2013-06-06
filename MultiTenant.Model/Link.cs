@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace MultiTenant.Model
 {
-    public class MenuItem
+    public class Link
     {
         public int TennantId { get; set; }
+        public string Type { get; set; }
         public string Action { get; set; }
         public string Area { get; set; }
         public string Controller { get; set; }

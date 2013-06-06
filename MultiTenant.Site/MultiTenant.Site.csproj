@@ -121,7 +121,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Areas\Apple\AppleAreaRegistration.cs" />
+    <Compile Include="Areas\Apple\Controllers\AppleRetailerController.cs" />
+    <Compile Include="Areas\Apple\Controllers\AppleStoreController.cs" />
+    <Compile Include="Areas\Microsoft\Controllers\MicrosoftStoreController.cs" />
+    <Compile Include="Areas\Microsoft\MicrosoftAreaRegistration.cs" />
+    <Compile Include="Controllers\DisplayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RetailerController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -217,6 +225,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Apple\Models\" />
+    <Folder Include="Areas\Apple\Views\Shared\" />
+    <Folder Include="Areas\Microsoft\Models\" />
+    <Folder Include="Areas\Microsoft\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -232,12 +244,28 @@
     <Content Include="Views\Shared\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Apple\Views\Web.config" />
+    <Content Include="Areas\Apple\Views\AppleStore\Index.cshtml" />
+    <Content Include="Areas\Microsoft\Views\Web.config" />
+    <Content Include="Areas\Microsoft\Views\MicrosoftStore\Index.cshtml" />
+    <Content Include="Areas\Apple\Views\AppleRetailer\Index.cshtml" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Retailer\Index.cshtml" />
+    <Content Include="Views\Display\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MultiTenant.Common\MultiTenant.Common.csproj">
+      <Project>{c8a73447-9daa-485c-aac1-3473f92c4a3f}</Project>
+      <Name>MultiTenant.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MultiTenant.Model\MultiTenant.Model.csproj">
+      <Project>{03c5c70a-905e-4f14-9835-0ca2d23e6c85}</Project>
+      <Name>MultiTenant.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MultiTenant.Service\MultiTenant.Service.csproj">
       <Project>{c9bdcb15-40b2-4aac-ae09-5adb03b8eaf3}</Project>
       <Name>MultiTenant.Service</Name>

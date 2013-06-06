@@ -1,4 +1,5 @@
 ﻿@using System.Web.Optimization
+@using MultiTenant.Helpers
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +12,23 @@
 <body>
     <header>
     </header>
+    
+    <nav>
+        @Html.SiteMenu()
+    </nav>
+
     @RenderBody()
     
     @RenderSection("scripts", required: false)
+    
+    <script type="text/javascript">
+
+        (function() {
+            $('#menu').kendoMenu({
+            });
+        })()    
+
+    </script>
+
 </body>
 </html>

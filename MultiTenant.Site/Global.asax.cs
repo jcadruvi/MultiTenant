@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MultiTenant.Model;
 using MultiTenant.Service.Interfaces;
 using MultiTenant.Service.Services;
 using MultiTenant.App_Start;
@@ -36,9 +37,18 @@ namespace MultiTenant
             }
             if (host[0] == "localhost")
             {
-                host[0] = "Apple";
+                host[0] = "apple";
             }
-            tenantService.SetCurrentTenant(host[0]);
+            Tenant currentTenant = tenantService.SetCurrentTenant(host[0]);
+            if (currentTenant == null)
+            {
+                return;
+            }
+            string redirectPath = tenantService.GetRedirectPath(currentTenant.Id, Context.Request.Path);
+            if (redirectPath != null)
+            {
+                Context.RewritePath(redirectPath);
+            }
         }
     }
 }

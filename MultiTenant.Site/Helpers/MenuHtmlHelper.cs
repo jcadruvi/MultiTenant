@@ -1,8 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
+using MultiTenant.Common.Types;
+using MultiTenant.Service.Interfaces;
+using MultiTenant.Service.Services;
+using MultiTenant.Model;
 
 namespace MultiTenant.Helpers
 {
@@ -10,18 +16,31 @@ namespace MultiTenant.Helpers
     {
         public static MvcHtmlString SiteMenu(this HtmlHelper helper)
         {
+            ITenantService service = new TenantService();
+            Tenant currentTenant = service.GetCurrentTenant();
+            if (currentTenant == null)
+            {
+                return null;
+            }
+
+            TagBuilder itemTag;
+            IList<Link> menuItems = service.GetLinks(currentTenant.Id, LinkTypes.Menu);
             TagBuilder menu = new TagBuilder("ul");
-            TagBuilder list;
+            
             menu.MergeAttribute("id", "menu");
-            list = new TagBuilder("li");
-            list.InnerHtml += "Page 1";
-            menu.InnerHtml += list;
-            list = new TagBuilder("li");
-            list.InnerHtml += "Page 2";
-            menu.InnerHtml += list;
-            list = new TagBuilder("li");
-            list.InnerHtml += "Page 3";
-            menu.InnerHtml += list;
+            foreach (Link item in menuItems)
+            {
+                itemTag = new TagBuilder("li");
+                if (String.IsNullOrWhiteSpace(item.Area))
+                {
+                    itemTag.InnerHtml = helper.ActionLink(item.Name, item.Action, new { area = "", controller = item.Controller }).ToString();
+                }
+                else
+                {
+                    itemTag.InnerHtml = helper.ActionLink(item.Name, item.Action, new { area = item.Area, controller = item.Controller }).ToString();
+                }
+                menu.InnerHtml += itemTag;
+            }
             return MvcHtmlString.Create(menu.ToString());
         }
     }

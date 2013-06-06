@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C66FDB65-78B7-4DE3-9563-8D777823CDE7}</ProjectGuid>
+    <ProjectGuid>{C8A73447-9DAA-485C-AAC1-3473F92C4A3F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MultiTenant.Repository</RootNamespace>
-    <AssemblyName>MultiTenant.Repository</AssemblyName>
+    <RootNamespace>MultiTenant.Common</RootNamespace>
+    <AssemblyName>MultiTenant.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,19 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\ITenantRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\TenantRepository.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MultiTenant.Common\MultiTenant.Common.csproj">
-      <Project>{c8a73447-9daa-485c-aac1-3473f92c4a3f}</Project>
-      <Name>MultiTenant.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MultiTenant.Model\MultiTenant.Model.csproj">
-      <Project>{03c5c70a-905e-4f14-9835-0ca2d23e6c85}</Project>
-      <Name>MultiTenant.Model</Name>
-    </ProjectReference>
+    <Compile Include="Types\LinkTypes.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
