@@ -37,7 +37,7 @@ namespace MultiTenant
             }
             if (host[0] == "localhost")
             {
-                host[0] = "apple";
+                host[0] = "bestbuy";
             }
             Tenant currentTenant = tenantService.SetCurrentTenant(host[0]);
             if (currentTenant == null)

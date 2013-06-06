@@ -55,6 +55,14 @@ namespace MultiTenant.Repository.Repositories
             _menuItems.Add(new Link
             {
                 Action = "Index",
+                Controller = "User",
+                Name = "User",
+                TennantId = 1,
+                Type = LinkTypes.Menu
+            });
+            _menuItems.Add(new Link
+            {
+                Action = "Index",
                 Controller = "Store",
                 Name = "Store",
                 TennantId = 2,
@@ -71,8 +79,24 @@ namespace MultiTenant.Repository.Repositories
             _menuItems.Add(new Link
             {
                 Action = "Index",
+                Controller = "User",
+                Name = "User",
+                TennantId = 2,
+                Type = LinkTypes.Menu
+            });
+            _menuItems.Add(new Link
+            {
+                Action = "Index",
                 Controller = "Store",
                 Name = "Store",
+                TennantId = 3,
+                Type = LinkTypes.Menu
+            }); 
+            _menuItems.Add(new Link
+            {
+                Action = "Index",
+                Controller = "User",
+                Name = "User",
                 TennantId = 3,
                 Type = LinkTypes.Menu
             });

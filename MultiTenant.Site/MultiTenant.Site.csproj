@@ -130,6 +130,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RetailerController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -229,6 +230,8 @@
     <Folder Include="Areas\Apple\Views\Shared\" />
     <Folder Include="Areas\Microsoft\Models\" />
     <Folder Include="Areas\Microsoft\Views\Shared\" />
+    <Folder Include="Core\" />
+    <Folder Include="Custom\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +259,7 @@
     <Content Include="Views\Store\Index.cshtml" />
     <Content Include="Views\Retailer\Index.cshtml" />
     <Content Include="Views\Display\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MultiTenant.Common\MultiTenant.Common.csproj">
