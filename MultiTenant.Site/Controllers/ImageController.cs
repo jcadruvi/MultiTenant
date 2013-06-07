@@ -7,10 +7,10 @@ using MultiTenant.Models;
 
 namespace MultiTenant.Controllers
 {
-    public class HomeController : BaseController
+    public class ImageController : BaseController
     {
         //
-        // GET: /Home/
+        // GET: /Image/
 
         public ActionResult Index()
         {

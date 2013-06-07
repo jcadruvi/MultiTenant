@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MultiTenant.Models;
 
 namespace MultiTenant.Controllers
 {
-    public class StoreController : Controller
+    public class StoreController : BaseController
     {
         //
         // GET: /Store/
 
         public ActionResult Index()
         {
-            return View();
+            BaseViewModel model = new BaseViewModel();
+            model.Host = Host;
+            return View("Index", model);
         }
 
     }

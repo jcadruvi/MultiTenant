@@ -14,10 +14,10 @@ namespace MultiTenant.Helpers
 {
     public static class MenuHtmlHelper
     {
-        public static MvcHtmlString SiteMenu(this HtmlHelper helper)
+        public static MvcHtmlString SiteMenu(this HtmlHelper helper, string host)
         {
             ITenantService service = new TenantService();
-            Tenant currentTenant = service.GetCurrentTenant();
+            Tenant currentTenant = service.GetCurrentTenant(host);
             if (currentTenant == null)
             {
                 return null;

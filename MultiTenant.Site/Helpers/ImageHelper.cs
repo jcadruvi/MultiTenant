@@ -15,20 +15,20 @@ namespace MultiTenant.Helpers
         {
             return helper.Content("~/Core/" + relativePath);
         }
-        public static string CustomContent(this UrlHelper helper, string relativePath)
+        public static string CustomContent(this UrlHelper helper, string relativePath, string host)
         {
             ITenantService tenantService = new TenantService();
-            Tenant currentTenant = tenantService.GetCurrentTenant();
+            Tenant currentTenant = tenantService.GetCurrentTenant(host);
             if (currentTenant == null)
             {
                 return null;
             }
             return helper.Content("~/Custom/" + currentTenant.Id + "/" + relativePath);
         }
-        public static string CoreOrCustomContent(this UrlHelper helper, string relativePath)
+        public static string CoreOrCustomContent(this UrlHelper helper, string relativePath, string host)
         {
             ITenantService tenantService = new TenantService();
-            Tenant currentTenant = tenantService.GetCurrentTenant();
+            Tenant currentTenant = tenantService.GetCurrentTenant(host);
             if (currentTenant == null)
             {
                 return null;

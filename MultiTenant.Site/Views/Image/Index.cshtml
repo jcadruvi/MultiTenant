@@ -1,0 +1,11 @@
+﻿@using MultiTenant.Helpers
+@model MultiTenant.Models.BaseViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>This is the CORE image</h2>
+<img class="userImage" src="@Url.CoreContent("Images/userCore.jpg")"/>
+<img class="userImage" src="@Url.CustomContent("Images/userCustom.jpg", @Model.Host)"/>
+<img class="userImage" src="@Url.CoreOrCustomContent("Images/userCoreCustom.jpg", @Model.Host)"/>

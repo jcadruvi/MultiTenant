@@ -10,7 +10,7 @@ using MultiTenant.Service.Services;
 
 namespace MultiTenant.Controllers
 {
-    public class TenantApiController : ApiController
+    public class TenantApiController : BaseApiController
     {
         private ITenantService _service; 
         public TenantApiController()
@@ -19,7 +19,7 @@ namespace MultiTenant.Controllers
         }
         public Tenant Get()
         {
-            return _service.GetCurrentTenant();
+            return _service.GetCurrentTenant(Host);
         }
         public IEnumerable<Tenant> GetAll()
         {

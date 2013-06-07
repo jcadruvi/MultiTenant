@@ -37,9 +37,7 @@ namespace MultiTenant
             {
                 return;
             }
-            currentTenant = host[0] == "localhost"
-                ? tenantService.GetCurrentTenant()
-                : tenantService.SetCurrentTenant(host[0]);
+            currentTenant = tenantService.GetCurrentTenant(host[0]);
             if (host[0] == "localhost" && currentTenant == null)
             {
                 currentTenant = tenantService.SetCurrentTenant(1);

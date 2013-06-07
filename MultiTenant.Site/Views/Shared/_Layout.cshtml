@@ -1,5 +1,6 @@
 ﻿@using System.Web.Optimization
 @using MultiTenant.Helpers
+@model MultiTenant.Models.BaseViewModel
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
     </div>
 
     <nav>
-        @Html.SiteMenu()
+        @Html.SiteMenu(@Model.Host)
     </nav>
 
     @RenderBody()

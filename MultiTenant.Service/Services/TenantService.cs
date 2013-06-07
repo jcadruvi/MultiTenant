@@ -17,9 +17,9 @@ namespace MultiTenant.Service.Services
             _repository = TenantRepository.Instance;
 
         }
-        public Tenant GetCurrentTenant()
+        public Tenant GetCurrentTenant(string host)
         {
-            return _repository.GetCurrentTenant();
+            return _repository.GetCurrentTenant(host);
         }
         public Link GetLink(int tenantId, string linkType)
         {
@@ -40,10 +40,6 @@ namespace MultiTenant.Service.Services
         public Tenant SetCurrentTenant(int id)
         {
             return _repository.SetCurrentTenant(id);
-        }
-        public Tenant SetCurrentTenant(string host)
-        {
-            return _repository.SetCurrentTenant(host);
         }
     }
 }

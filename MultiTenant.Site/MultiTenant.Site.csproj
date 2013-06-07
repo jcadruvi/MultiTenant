@@ -126,8 +126,11 @@
     <Compile Include="Areas\Apple\Controllers\AppleStoreController.cs" />
     <Compile Include="Areas\Microsoft\Controllers\MicrosoftStoreController.cs" />
     <Compile Include="Areas\Microsoft\MicrosoftAreaRegistration.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DisplayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\RetailerController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\TenantApiController.cs" />
@@ -137,6 +140,7 @@
     </Compile>
     <Compile Include="Helpers\MenuHtmlHelper.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="Models\BaseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -234,7 +238,6 @@
     <Folder Include="Areas\Microsoft\Views\Shared\" />
     <Folder Include="Core\Images\" />
     <Folder Include="Custom\Images\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -262,6 +265,7 @@
     <Content Include="Views\Retailer\Index.cshtml" />
     <Content Include="Views\Display\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Image\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MultiTenant.Common\MultiTenant.Common.csproj">

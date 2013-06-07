@@ -9,12 +9,11 @@ namespace MultiTenant.Service.Interfaces
 {
     public interface ITenantService
     {
-        Tenant GetCurrentTenant();
+        Tenant GetCurrentTenant(string host);
         Link GetLink(int tenantId, string linkType);
         IList<Link> GetLinks(int tenantId, string linkType);
         string GetRedirectPath(int tenantId, string originalPath);
         IEnumerable<Tenant> GetTenants();
         Tenant SetCurrentTenant(int id);
-        Tenant SetCurrentTenant(string host);
     }
 }
