@@ -28,18 +28,23 @@
     
     <script type="text/javascript">
 
-        (function() {
+        (function () {
+            
+            function setTenant(id) {
+                $.ajax({
+                    success: function () {
+                        location.reload();
+                    },
+                    type: 'PUT',
+                    url: 'api/TenantApi?id=' + id.toString()
+                });
+            }
+
             $('#menu').kendoMenu({
             });
             $('#tenants').kendoDropDownList({
                 change: function() {
-                    $.ajax({
-                        success: function() {
-                            location.reload();
-                        },
-                        type: 'PUT',
-                        url: 'api/TenantApi?id=' + this.value().toString()
-                    });
+                    setTenant(this.value().toString());
                 },
                 dataTextField: "Name",
                 dataValueField: "Id",
@@ -53,7 +58,10 @@
                 }
             });
             $.ajax({
-                success: function(result) {
+                success: function (result) {
+                    if (!result) {
+                        setTenant(1);
+                    }
                     $('#tenants').data('kendoDropDownList').value(result.Id);
                 },
                 type: 'GET',

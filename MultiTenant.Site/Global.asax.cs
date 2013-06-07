@@ -31,22 +31,30 @@ namespace MultiTenant
         {
             Tenant currentTenant;
             string[] host = Context.Request.Headers["Host"].Split(':');
+            string path = Context.Request.Path;
             ITenantService tenantService = new TenantService(); 
-
             if (host.Length == 0)
             {
                 return;
             }
-            currentTenant = tenantService.GetCurrentTenant(host[0]);
-            if (host[0] == "localhost" && currentTenant == null)
+            if (path.Length >= 4 && path.ToLower().Substring(0, 4) == "/api")
             {
-                currentTenant = tenantService.SetCurrentTenant(1);
+                return;
             }
+            if (path.Length >= 5 && path.ToLower().Substring(0, 5) == "/core")
+            {
+                return;
+            }
+            if (path.Length >= 7 && path.ToLower().Substring(0, 7) == "/custom")
+            {
+                return;
+            }
+            currentTenant = tenantService.GetCurrentTenant(host[0]);
             if (currentTenant == null)
             {
                 return;
             }
-            string redirectPath = tenantService.GetRedirectPath(currentTenant.Id, Context.Request.Path);
+            string redirectPath = tenantService.GetRedirectPath(currentTenant.Id, path);
             if (redirectPath != null)
             {
                 Context.RewritePath(redirectPath);
