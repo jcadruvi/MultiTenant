@@ -136,6 +136,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\MenuHtmlHelper.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -231,8 +232,8 @@
     <Folder Include="Areas\Apple\Views\Shared\" />
     <Folder Include="Areas\Microsoft\Models\" />
     <Folder Include="Areas\Microsoft\Views\Shared\" />
-    <Folder Include="Core\" />
-    <Folder Include="Custom\" />
+    <Folder Include="Core\Images\" />
+    <Folder Include="Custom\Images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

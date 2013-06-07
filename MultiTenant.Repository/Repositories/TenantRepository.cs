@@ -121,6 +121,13 @@ namespace MultiTenant.Repository.Repositories
 
             _paths.Add(new RequestPath
             {
+                TenantId = 1,
+                OriginalPath = "Images/userCoreCustom.jpg",
+                NewPath = "/1/Images/userCoreCustom.jpg"
+            });
+
+            _paths.Add(new RequestPath
+            {
                 TenantId = 2,
                 OriginalPath = "/store",
                 NewPath = "/microsoft/microsoftstore"

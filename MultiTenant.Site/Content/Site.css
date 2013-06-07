@@ -63,3 +63,8 @@ textarea {
 #tenantsParent {
     margin: 0 0 10px 0;
 }
+
+.userImage {
+    height: 100px;
+    widht: 100px;
+}
