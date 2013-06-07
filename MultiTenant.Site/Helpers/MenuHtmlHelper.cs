@@ -16,15 +16,16 @@ namespace MultiTenant.Helpers
     {
         public static MvcHtmlString SiteMenu(this HtmlHelper helper, string host)
         {
-            ITenantService service = new TenantService();
-            Tenant currentTenant = service.GetCurrentTenant(host);
+            ILinkService linkService = new LinkService();
+            ITenantService tenantService = new TenantService();
+            Tenant currentTenant = tenantService.GetCurrentTenant(host);
             if (currentTenant == null)
             {
                 return null;
             }
 
             TagBuilder itemTag;
-            IList<Link> menuItems = service.GetLinks(currentTenant.Id, LinkTypes.Menu);
+            IList<Link> menuItems = linkService.GetLinks(currentTenant.Id, LinkTypes.Menu);
             TagBuilder menu = new TagBuilder("ul");
             
             menu.MergeAttribute("id", "menu");

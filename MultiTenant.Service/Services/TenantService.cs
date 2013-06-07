@@ -15,19 +15,10 @@ namespace MultiTenant.Service.Services
         public TenantService()
         {
             _repository = TenantRepository.Instance;
-
         }
         public Tenant GetCurrentTenant(string host)
         {
             return _repository.GetCurrentTenant(host);
-        }
-        public Link GetLink(int tenantId, string linkType)
-        {
-            return _repository.GetLink(tenantId, linkType);
-        }
-        public IList<Link> GetLinks(int tenantId, string linkType)
-        {
-            return _repository.GetLinks(tenantId, linkType);
         }
         public string GetRedirectPath(int tenantId, string originalPath)
         {
