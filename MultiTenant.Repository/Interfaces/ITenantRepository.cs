@@ -10,7 +10,6 @@ namespace MultiTenant.Repository.Interfaces
     public interface ITenantRepository
     {
         Tenant GetCurrentTenant(string host);
-        string GetRedirectPath(int tenantId, string originalPath);
         IEnumerable<Tenant> GetTenants();
         Tenant SetCurrentTenant(int id);
     }

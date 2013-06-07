@@ -27,13 +27,14 @@ namespace MultiTenant.Helpers
         }
         public static string CoreOrCustomContent(this UrlHelper helper, string relativePath, string host)
         {
+            IPathService pathService = new PathService();
             ITenantService tenantService = new TenantService();
             Tenant currentTenant = tenantService.GetCurrentTenant(host);
             if (currentTenant == null)
             {
                 return null;
             }
-            string redirectPath = tenantService.GetRedirectPath(currentTenant.Id, relativePath);
+            string redirectPath = pathService.GetRedirectPath(currentTenant.Id, relativePath);
             if (redirectPath == null)
             {
                 return helper.Content("~/Core/" + relativePath); 

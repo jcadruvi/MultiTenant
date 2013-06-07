@@ -20,10 +20,6 @@ namespace MultiTenant.Service.Services
         {
             return _repository.GetCurrentTenant(host);
         }
-        public string GetRedirectPath(int tenantId, string originalPath)
-        {
-            return _repository.GetRedirectPath(tenantId, originalPath);
-        }
         public IEnumerable<Tenant> GetTenants()
         {
             return _repository.GetTenants();

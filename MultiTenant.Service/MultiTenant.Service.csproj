@@ -40,9 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ILinkService.cs" />
+    <Compile Include="Interfaces\IPathService.cs" />
     <Compile Include="Interfaces\ITenantService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LinkService.cs" />
+    <Compile Include="Services\PathService.cs" />
     <Compile Include="Services\TenantService.cs" />
   </ItemGroup>
   <ItemGroup>

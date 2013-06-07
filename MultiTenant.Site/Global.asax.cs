@@ -32,6 +32,7 @@ namespace MultiTenant
             Tenant currentTenant;
             string[] host = Context.Request.Headers["Host"].Split(':');
             string path = Context.Request.Path;
+            IPathService pathService = new PathService();
             ITenantService tenantService = new TenantService(); 
             if (host.Length == 0)
             {
@@ -54,7 +55,7 @@ namespace MultiTenant
             {
                 return;
             }
-            string redirectPath = tenantService.GetRedirectPath(currentTenant.Id, path);
+            string redirectPath = pathService.GetRedirectPath(currentTenant.Id, path);
             if (redirectPath != null)
             {
                 Context.RewritePath(redirectPath);
