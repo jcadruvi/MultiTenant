@@ -121,9 +121,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Apple\AppleAreaRegistration.cs" />
     <Compile Include="Areas\Apple\Controllers\AppleRetailerController.cs" />
     <Compile Include="Areas\Apple\Controllers\AppleStoreController.cs" />
+    <Compile Include="Areas\Apple\Controllers\AppleUserController.cs" />
     <Compile Include="Areas\Microsoft\Controllers\MicrosoftStoreController.cs" />
     <Compile Include="Areas\Microsoft\MicrosoftAreaRegistration.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
@@ -134,7 +136,7 @@
     <Compile Include="Controllers\RetailerController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\TenantApiController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -232,6 +234,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Apple\Models\" />
     <Folder Include="Areas\Apple\Views\Shared\" />
     <Folder Include="Areas\Microsoft\Models\" />
@@ -257,6 +261,8 @@
     <Content Include="Areas\Microsoft\Views\Web.config" />
     <Content Include="Areas\Microsoft\Views\MicrosoftStore\Index.cshtml" />
     <Content Include="Areas\Apple\Views\AppleRetailer\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Apple\Views\AppleUser\Index.cshtml" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -264,7 +270,7 @@
     <Content Include="Views\Store\Index.cshtml" />
     <Content Include="Views\Retailer\Index.cshtml" />
     <Content Include="Views\Display\Index.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -42,6 +42,11 @@ namespace MultiTenant
             {
                 return;
             }
+            // Web api calls can have an Area before the /api call. 
+            if (path.Length >= 5 && path.ToLower().IndexOf("/api/") > 0)
+            {
+                return;
+            }
             if (path.Length >= 5 && path.ToLower().Substring(0, 5) == "/core")
             {
                 return;

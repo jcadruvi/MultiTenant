@@ -33,7 +33,12 @@ namespace MultiTenant.Repository.Repositories
                 OriginalPath = "/retailer",
                 NewPath = "/apple/appleretailer"
             });
-
+            _paths.Add(new RequestPath
+            {
+                TenantId = 1,
+                OriginalPath = "/admin/user",
+                NewPath = "/apple/appleuser"
+            });
             _paths.Add(new RequestPath
             {
                 TenantId = 1,

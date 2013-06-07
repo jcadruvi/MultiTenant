@@ -50,6 +50,7 @@ namespace MultiTenant.Repository.Repositories
             _links.Add(new Link
             {
                 Action = "Index",
+                Area = "Admin",
                 Controller = "User",
                 Name = "User",
                 TennantId = 1,
@@ -82,6 +83,7 @@ namespace MultiTenant.Repository.Repositories
             _links.Add(new Link
             {
                 Action = "Index",
+                Area = "Admin",
                 Controller = "User",
                 Name = "User",
                 TennantId = 2,
@@ -106,6 +108,7 @@ namespace MultiTenant.Repository.Repositories
             _links.Add(new Link
             {
                 Action = "Index",
+                Area = "Admin",
                 Controller = "User",
                 Name = "User",
                 TennantId = 3,
