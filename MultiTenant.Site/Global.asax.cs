@@ -32,8 +32,8 @@ namespace MultiTenant
             Tenant currentTenant;
             string[] host = Context.Request.Headers["Host"].Split(':');
             string path = Context.Request.Path;
-            IPathService pathService = new PathService();
-            ITenantService tenantService = new TenantService(); 
+            IPathService pathService = DependencyResolver.Current.GetService(typeof(IPathService)) as IPathService;
+            ITenantService tenantService = DependencyResolver.Current.GetService(typeof(ITenantService)) as ITenantService;
             if (host.Length == 0)
             {
                 return;

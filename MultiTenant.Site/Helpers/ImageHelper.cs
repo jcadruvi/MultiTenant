@@ -17,7 +17,7 @@ namespace MultiTenant.Helpers
         }
         public static string CustomContent(this UrlHelper helper, string relativePath, string host)
         {
-            ITenantService tenantService = new TenantService();
+            ITenantService tenantService = DependencyResolver.Current.GetService(typeof(ITenantService)) as ITenantService;
             Tenant currentTenant = tenantService.GetCurrentTenant(host);
             if (currentTenant == null)
             {
@@ -27,8 +27,8 @@ namespace MultiTenant.Helpers
         }
         public static string CoreOrCustomContent(this UrlHelper helper, string relativePath, string host)
         {
-            IPathService pathService = new PathService();
-            ITenantService tenantService = new TenantService();
+            IPathService pathService = DependencyResolver.Current.GetService(typeof(IPathService)) as IPathService;
+            ITenantService tenantService = DependencyResolver.Current.GetService(typeof(ITenantService)) as ITenantService;
             Tenant currentTenant = tenantService.GetCurrentTenant(host);
             if (currentTenant == null)
             {

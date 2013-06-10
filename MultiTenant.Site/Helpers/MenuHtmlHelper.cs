@@ -16,8 +16,8 @@ namespace MultiTenant.Helpers
     {
         public static MvcHtmlString SiteMenu(this HtmlHelper helper, string host)
         {
-            ILinkService linkService = new LinkService();
-            ITenantService tenantService = new TenantService();
+            ILinkService linkService = DependencyResolver.Current.GetService(typeof(ILinkService)) as ILinkService;
+            ITenantService tenantService = DependencyResolver.Current.GetService(typeof(ITenantService)) as ITenantService;
             Tenant currentTenant = tenantService.GetCurrentTenant(host);
             if (currentTenant == null)
             {

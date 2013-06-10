@@ -59,6 +59,8 @@ namespace MultiTenant.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<ILinkService>().To<LinkService>();
+            kernel.Bind<IPathService>().To<PathService>();
             kernel.Bind<ITenantService>().To<TenantService>();
         }        
     }
