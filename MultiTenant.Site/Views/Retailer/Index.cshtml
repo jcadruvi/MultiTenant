@@ -7,6 +7,34 @@
 <h2>This is the CORE retailer.</h2>
 <div id="retailerGrid"></div>
 
+<div class="panel retailerPanel">
+    <div class="panelHeader"><strong>Retailer</strong></div>
+    <div>
+        <span class="retailerLabel">Id:</span>
+        <span>@Html.TextBoxFor(model => model.Id)</span>
+    </div>
+    <div>
+        <span class="retailerLabel">Name:</span>
+        <span>@Html.TextBoxFor(model => model.Name)</span>
+    </div>
+    <div>
+        <span class="retailerLabel">Number:</span>
+        <span>@Html.TextBoxFor(model => model.Number)</span>
+    </div>
+</div>
+
+<div class="panel retailerPanel">
+    <div class="panelHeader"><strong>Sales</strong></div>
+    <div>
+        <span class="retailerLabel">Calendar Sales:</span>
+        <span>@Html.TextBoxFor(model => model.CalendarSales)</span>
+    </div>
+    <div>
+        <span class="retailerLabel">Fiscal Sales:</span>
+        <span>@Html.TextBoxFor(model => model.FiscalSales)</span>
+    </div>
+</div>
+
 <script type="text/javascript">
     $("#retailerGrid").kendoGrid({
         autoBind: true,

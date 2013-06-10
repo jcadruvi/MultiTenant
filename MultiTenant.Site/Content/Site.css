@@ -60,11 +60,49 @@ textarea {
     display: none;
 }
 
+.panel {
+    border: 1px solid gray;
+
+	-webkit-box-shadow: 3px 3px 5px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    3px 3px 5px rgba(50, 50, 50, 0.75);
+	box-shadow:         3px 3px 5px rgba(50, 50, 50, 0.75);
+
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+.panelHeader {
+    background: #ABBBCC;
+	color: white;
+	padding: 10px 0px 10px 10px;
+
+	-webkit-border-top-left-radius: 8px;
+	-webkit-border-top-right-radius: 8px;
+	-moz-border-radius-topleft: 8px;
+	-moz-border-radius-topright: 8px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	
+	text-shadow: 0 0.15em 0.10em rgba(0, 0, 0, 0.25);	
+}
+
+.retailerLabel {
+    display: inline-block;
+    margin-left: 10px;
+    width: 100px;
+}
+
+.retailerPanel {
+    margin-top: 10px;
+    width: 400px;
+}
+
 #tenantsParent {
     margin: 0 0 10px 0;
 }
 
 .userImage {
     height: 100px;
-    widht: 100px;
+    width: 100px;
 }
