@@ -1,5 +1,7 @@
 using System.Web.Http;
 using MultiTenant.NinjectWebApi;
+using MultiTenant.Service.Interfaces;
+using MultiTenant.Service.Services;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(MultiTenant.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(MultiTenant.App_Start.NinjectWebCommon), "Stop")]
@@ -57,6 +59,7 @@ namespace MultiTenant.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<ITenantService>().To<TenantService>();
         }        
     }
 }

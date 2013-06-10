@@ -12,23 +12,23 @@ namespace MultiTenant.Controllers
 {
     public class TenantApiController : BaseApiController
     {
-        private ITenantService _service; 
-        public TenantApiController()
+        private ITenantService _tenantService; 
+        public TenantApiController(ITenantService tenantService)
         {
-            _service = new TenantService();
+            _tenantService = tenantService;
         }
         public Tenant Get()
         {
-            return _service.GetCurrentTenant(Host);
+            return _tenantService.GetCurrentTenant(Host);
         }
         public IEnumerable<Tenant> GetAll()
         {
-            return _service.GetTenants();
+            return _tenantService.GetTenants();
         }
 
         public void Put(int id)
         {
-            _service.SetCurrentTenant(id);
+            _tenantService.SetCurrentTenant(id);
         }
     }
 }
