@@ -19,7 +19,10 @@
     </div>
 
     <nav>
-        @Html.SiteMenu(@Model.Host)
+        @if (@Model.CurrentTenant != null)
+        {
+           @Html.SiteMenu(@Model.CurrentTenant.Host) 
+        }
     </nav>
 
     @RenderBody()

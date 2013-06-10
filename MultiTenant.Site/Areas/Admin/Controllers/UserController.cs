@@ -5,18 +5,23 @@ using System.Web;
 using System.Web.Mvc;
 using MultiTenant.Controllers;
 using MultiTenant.Models;
+using MultiTenant.Service.Interfaces;
 
 namespace MultiTenant.Areas.Admin.Controllers
 {
     public class UserController : BaseController
     {
+        public UserController(ITenantService tenantService) : base(tenantService)
+        {
+        }
+
         //
         // GET: /User/
 
         public ActionResult Index()
         {
             BaseViewModel model = new BaseViewModel();
-            model.Host = Host;
+            model.CurrentTenant = CurrentTenant;
             return View("Index", model);
         }
 

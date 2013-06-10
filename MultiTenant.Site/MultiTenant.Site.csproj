@@ -154,7 +154,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\MenuHtmlHelper.cs" />
-    <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="Helpers\ContentHelper.cs" />
     <Compile Include="Models\BaseViewModel.cs" />
     <Compile Include="NinjectWebApi\NinjectDependencyResolver.cs" />
     <Compile Include="NinjectWebApi\NinjectDependencyScope.cs" />

@@ -27,7 +27,7 @@
             transport: {
                 read: function (options) {
                     $.ajax({
-                        url: "api/StoreApi/GetStores",
+                        url: "api/RetailerApi/GetRetailers",
                         success: function (result) {
                             options.success(result);
                         },
@@ -41,8 +41,6 @@
                     fields: {
                         Name: { type: "string" },
                         Number: { type: "number" },
-                        City: { type: "string" },
-                        State: { type: "string" }
                     }
                 }
             }
@@ -61,14 +59,6 @@
                 field: "Number",
                 title: "Number",
                 width: "90px"
-            }, {
-                field: "City",
-                title: "City",
-                width: "190px"
-            }, {
-                field: "State",
-                title: "State",
-                width: "60px"
             }]
     });
 </script>
