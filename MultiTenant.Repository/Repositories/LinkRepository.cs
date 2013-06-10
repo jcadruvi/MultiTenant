@@ -108,6 +108,14 @@ namespace MultiTenant.Repository.Repositories
             _links.Add(new Link
             {
                 Action = "Index",
+                Controller = "Retailer",
+                Name = "Retailer",
+                TennantId = 3,
+                Type = LinkTypes.Menu
+            });
+            _links.Add(new Link
+            {
+                Action = "Index",
                 Area = "Admin",
                 Controller = "User",
                 Name = "User",
