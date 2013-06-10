@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Link.cs" />
     <Compile Include="RequestPath.cs" />
+    <Compile Include="Retailer.cs" />
     <Compile Include="Tenant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
