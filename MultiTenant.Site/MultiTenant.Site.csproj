@@ -156,6 +156,7 @@
     <Compile Include="Helpers\MenuHtmlHelper.cs" />
     <Compile Include="Helpers\ContentHelper.cs" />
     <Compile Include="Models\BaseViewModel.cs" />
+    <Compile Include="Models\RetailerViewModel.cs" />
     <Compile Include="NinjectWebApi\NinjectDependencyResolver.cs" />
     <Compile Include="NinjectWebApi\NinjectDependencyScope.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

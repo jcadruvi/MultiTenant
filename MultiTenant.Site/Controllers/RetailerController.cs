@@ -19,7 +19,7 @@ namespace MultiTenant.Controllers
 
         public ActionResult Index()
         {
-            BaseViewModel model = new BaseViewModel();
+            RetailerViewModel model = new RetailerViewModel();
             model.CurrentTenant = CurrentTenant;
             return View("Index", model);
         }
