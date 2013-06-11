@@ -7,21 +7,22 @@ using MultiTenant.Controllers;
 using MultiTenant.Models;
 using MultiTenant.Service.Interfaces;
 
-namespace MultiTenant.Areas.Survey.Controllers
+namespace MultiTenant.Areas.CPG.Controllers
 {
-    public class SurveyController : BaseController
+    public class DisplayController : BaseController
     {
-        public SurveyController(ITenantService tenantService) : base(tenantService)
+        public DisplayController(ITenantService tenantService) : base(tenantService)
         {
         }
-        //
-        // GET: /Survey/Survey/
 
-        public ActionResult Survey()
+        //
+        // GET: /Display/
+
+        public ActionResult Index()
         {
             BaseViewModel model = new BaseViewModel();
             model.CurrentTenant = CurrentTenant;
-            return View("Survey", model);
+            return View("Index", model);
         }
 
     }

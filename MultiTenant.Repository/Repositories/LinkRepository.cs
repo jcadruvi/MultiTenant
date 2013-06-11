@@ -42,6 +42,7 @@ namespace MultiTenant.Repository.Repositories
             _links.Add(new Link
             {
                 Action = "Index",
+                Area = "Display",
                 Controller = "Display",
                 Name = "Display",
                 TennantId = TenantIds.AppleId,
@@ -136,15 +137,6 @@ namespace MultiTenant.Repository.Repositories
                 Action = "Index",
                 Controller = "Image",
                 Name = "Image",
-                TennantId = TenantIds.BestBuyId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
-                Action = "Survey",
-                Area = "Survey",
-                Controller = "Survey",
-                Name = "Survey",
                 TennantId = TenantIds.BestBuyId,
                 Type = LinkTypes.Menu
             });

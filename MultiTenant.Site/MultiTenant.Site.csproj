@@ -138,13 +138,13 @@
     <Compile Include="Areas\Apple\AppleAreaRegistration.cs" />
     <Compile Include="Areas\Apple\Controllers\StoreController.cs" />
     <Compile Include="Areas\Apple\Controllers\UserController.cs" />
+    <Compile Include="Areas\Display\DisplayAreaRegistration.cs" />
     <Compile Include="Areas\Microsoft\Controllers\StoreController.cs" />
     <Compile Include="Areas\Microsoft\MicrosoftAreaRegistration.cs" />
-    <Compile Include="Areas\Survey\Controllers\SurveyController.cs" />
-    <Compile Include="Areas\Survey\SurveyAreaRegistration.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\DisplayController.cs" />
+    <Compile Include="Areas\Display\Controllers\DisplayController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\RetailerApiController.cs" />
@@ -262,10 +262,10 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Apple\Models\" />
     <Folder Include="Areas\Apple\Views\Shared\" />
+    <Folder Include="Areas\Display\Models\" />
+    <Folder Include="Areas\Display\Views\Shared\" />
     <Folder Include="Areas\Microsoft\Models\" />
     <Folder Include="Areas\Microsoft\Views\Shared\" />
-    <Folder Include="Areas\Survey\Models\" />
-    <Folder Include="Areas\Survey\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -286,17 +286,17 @@
     <Content Include="Areas\Microsoft\Views\Store\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Apple\Views\User\Index.cshtml" />
-    <Content Include="Areas\Survey\Views\Web.config" />
-    <Content Include="Areas\Survey\Views\Survey\Survey.cshtml" />
+    <Content Include="Areas\Display\Views\Web.config" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Store\Index.cshtml" />
     <Content Include="Views\Retailer\Index.cshtml" />
-    <Content Include="Views\Display\Index.cshtml" />
+    <Content Include="Areas\Display\Views\Display\Index.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
+    <Content Include="Views\Shared\Error404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MultiTenant.Common\MultiTenant.Common.csproj">
