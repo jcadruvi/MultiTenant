@@ -66,6 +66,15 @@ namespace MultiTenant.Repository.Repositories
             });
             _links.Add(new Link
             {
+                Action = "Survey",
+                Area = "Survey",
+                Controller = "Survey",
+                Name = "Survey",
+                TennantId = 1,
+                Type = LinkTypes.Menu
+            });
+            _links.Add(new Link
+            {
                 Action = "Store",
                 Controller = "Store",
                 Name = "Store",
@@ -99,6 +108,15 @@ namespace MultiTenant.Repository.Repositories
             });
             _links.Add(new Link
             {
+                Action = "Survey",
+                Area = "Survey",
+                Controller = "Survey",
+                Name = "Survey",
+                TennantId = 2,
+                Type = LinkTypes.Menu
+            });
+            _links.Add(new Link
+            {
                 Action = "Store",
                 Controller = "Store",
                 Name = "Store",
@@ -118,6 +136,15 @@ namespace MultiTenant.Repository.Repositories
                 Action = "Index",
                 Controller = "Image",
                 Name = "Image",
+                TennantId = 3,
+                Type = LinkTypes.Menu
+            });
+            _links.Add(new Link
+            {
+                Action = "Survey",
+                Area = "Survey",
+                Controller = "Survey",
+                Name = "Survey",
                 TennantId = 3,
                 Type = LinkTypes.Menu
             });

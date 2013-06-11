@@ -140,6 +140,8 @@
     <Compile Include="Areas\Apple\Controllers\UserController.cs" />
     <Compile Include="Areas\Microsoft\Controllers\StoreController.cs" />
     <Compile Include="Areas\Microsoft\MicrosoftAreaRegistration.cs" />
+    <Compile Include="Areas\Survey\Controllers\SurveyController.cs" />
+    <Compile Include="Areas\Survey\SurveyAreaRegistration.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DisplayController.cs" />
@@ -262,6 +264,8 @@
     <Folder Include="Areas\Apple\Views\Shared\" />
     <Folder Include="Areas\Microsoft\Models\" />
     <Folder Include="Areas\Microsoft\Views\Shared\" />
+    <Folder Include="Areas\Survey\Models\" />
+    <Folder Include="Areas\Survey\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -282,6 +286,8 @@
     <Content Include="Areas\Microsoft\Views\Store\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Apple\Views\User\Index.cshtml" />
+    <Content Include="Areas\Survey\Views\Web.config" />
+    <Content Include="Areas\Survey\Views\Survey\Survey.cshtml" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
