@@ -115,15 +115,6 @@ namespace MultiTenant.Repository.Repositories
             });
             _links.Add(new Link
             {
-                Action = "UserView",
-                Area = "Admin",
-                Controller = "User",
-                Name = "User",
-                TennantId = 3,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
                 Action = "Index",
                 Controller = "Image",
                 Name = "Image",
