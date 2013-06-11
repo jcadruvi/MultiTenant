@@ -229,6 +229,10 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Goa\Core\Images\imageCore.jpg" />
+    <Content Include="Goa\Custom\1\Images\imageCustom.jpg" />
+    <Content Include="Goa\Custom\2\Images\imageCustom.jpg" />
+    <Content Include="Goa\Custom\3\Images\imageCustom.jpg" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -256,7 +260,6 @@
     <Folder Include="Areas\Apple\Views\Shared\" />
     <Folder Include="Areas\Microsoft\Models\" />
     <Folder Include="Areas\Microsoft\Views\Shared\" />
-    <Folder Include="Goa\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
