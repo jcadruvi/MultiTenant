@@ -162,7 +162,7 @@
     <Compile Include="NinjectWebApi\NinjectDependencyResolver.cs" />
     <Compile Include="NinjectWebApi\NinjectDependencyScope.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RouteConstraints\PremiumRouteConstraint.cs" />
+    <Compile Include="RouteConstraints\AccessRouteConstraint.cs" />
     <Compile Include="RouteConstraints\TenantRouteConstraint.cs" />
   </ItemGroup>
   <ItemGroup>

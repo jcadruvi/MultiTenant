@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using System.Web.Mvc;
+using MultiTenant.Common.Types;
 using MultiTenant.RouteConstraints;
 using MultiTenant.Service.Interfaces;
 
@@ -21,7 +22,7 @@ namespace MultiTenant.Areas.Admin
                 name: "Admin_default",
                 url: "Admin/{controller}/{action}/{id}",
                 defaults: new { action = "Index", id = UrlParameter.Optional }, 
-                constraints: new { action = new PremiumRouteConstraint() }
+                constraints: new { action = new AccessRouteConstraint(AccessTypes.Premium) }
             );
             
         }
