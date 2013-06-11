@@ -60,6 +60,25 @@ textarea {
     display: none;
 }
 
+
+/****************************************************************************************
+    Added CSS
+****************************************************************************************/
+
+#coreImage {
+    background-image: url("/Core/Images/imageCore.jpg");
+    display: inline-block;
+    height: 150px;
+    width: 200px;
+}
+
+#customImage {
+    background-image: url("/Custom/Images/imageCustom.jpg");
+    display: inline-block;
+    height: 150px;
+    width: 200px;
+}
+
 .panel {
     border: 1px solid gray;
 
@@ -103,6 +122,6 @@ textarea {
 }
 
 .userImage {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 200px;
 }
