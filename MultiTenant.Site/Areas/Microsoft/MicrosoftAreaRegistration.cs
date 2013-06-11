@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using MultiTenant.RouteConstraints;
 
 namespace MultiTenant.Areas.Microsoft
 {
@@ -15,9 +16,10 @@ namespace MultiTenant.Areas.Microsoft
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
-                "Microsoft_default",
-                "Microsoft/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                name: "Microsoft_default",
+                url: "Microsoft/{controller}/{action}/{id}",
+                defaults: new { action = "Index", id = UrlParameter.Optional },
+                constraints: new { action = new TenantRouteConstraint(2) }
             );
         }
     }

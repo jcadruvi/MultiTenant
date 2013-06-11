@@ -31,19 +31,19 @@ namespace MultiTenant.Repository.Repositories
             {
                 Host = "apple",
                 Name = "Apple",
-                Id = 1
+                Id = TenantIds.AppleId
             });
             _tenants.Add(new Tenant
             {
                 Host = "microsoft",
                 Name = "Microsoft",
-                Id = 2
+                Id = TenantIds.MicrosoftId
             });
             _tenants.Add(new Tenant
             {
                 Host = "bestbuy",
                 Name = "BestBuy",
-                Id = 3
+                Id = TenantIds.BestBuyId
             });
 
             #endregion

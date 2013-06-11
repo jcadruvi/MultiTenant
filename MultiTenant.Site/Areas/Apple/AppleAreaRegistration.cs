@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using MultiTenant.RouteConstraints;
 
 namespace MultiTenant.Areas.Apple
 {
@@ -15,9 +16,10 @@ namespace MultiTenant.Areas.Apple
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
-                "Apple_default",
-                "Apple/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                name: "Apple_default",
+                url: "Apple/{controller}/{action}/{id}",
+                defaults: new { action = "Index", id = UrlParameter.Optional },
+                constraints: new { action = new TenantRouteConstraint(1) }
             );
         }
     }
