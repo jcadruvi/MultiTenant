@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Access.cs" />
     <Compile Include="Link.cs" />
     <Compile Include="RequestPath.cs" />
     <Compile Include="Retailer.cs" />
