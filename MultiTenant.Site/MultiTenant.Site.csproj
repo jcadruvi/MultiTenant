@@ -256,8 +256,7 @@
     <Folder Include="Areas\Apple\Views\Shared\" />
     <Folder Include="Areas\Microsoft\Models\" />
     <Folder Include="Areas\Microsoft\Views\Shared\" />
-    <Folder Include="Core\Images\" />
-    <Folder Include="Custom\Images\" />
+    <Folder Include="Goa\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -316,7 +315,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60932</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

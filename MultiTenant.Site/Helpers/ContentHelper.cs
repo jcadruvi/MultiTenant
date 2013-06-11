@@ -15,23 +15,9 @@ namespace MultiTenant.Helpers
         {
             return helper.Content("~/Core/" + relativePath);
         }
-        public static string CustomContent(this UrlHelper helper, string relativePath, Tenant currentTenant)
+        public static string CustomContent(this UrlHelper helper, string relativePath)
         {
-            return helper.Content("~/Custom/" + currentTenant.Id + "/" + relativePath);
-        }
-        public static string CoreOrCustomContent(this UrlHelper helper, string relativePath, Tenant currentTenant)
-        {
-            IPathService pathService = DependencyResolver.Current.GetService(typeof(IPathService)) as IPathService;
-            string redirectPath = null;
-            if (pathService != null)
-            {
-                redirectPath = pathService.GetRedirectPath(currentTenant.Id, relativePath);
-            }
-            if (redirectPath == null)
-            {
-                return helper.Content("~/Core/" + relativePath); 
-            }
-            return helper.Content("~/Custom/" + currentTenant.Id + "/" + relativePath);
+            return helper.Content("~/Custom/" + relativePath);
         }
     }
 }

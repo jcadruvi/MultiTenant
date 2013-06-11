@@ -29,6 +29,8 @@ namespace MultiTenant
 
         protected void Application_BeginRequest()
         {
+            string corePath = "/core";
+            string customPath = "/custom";
             Tenant currentTenant;
             string[] host = Context.Request.Headers["Host"].Split(':');
             string path = Context.Request.Path;
@@ -42,16 +44,11 @@ namespace MultiTenant
             {
                 return;
             }
-            // Web api calls can have an Area before the /api call. 
-            if (path.Length >= 5 && path.ToLower().IndexOf("/api/") > 0)
+            if (path.Length >= 8 && path.ToLower().Substring(0, 4) == "/scripts")
             {
                 return;
             }
-            if (path.Length >= 5 && path.ToLower().Substring(0, 5) == "/core")
-            {
-                return;
-            }
-            if (path.Length >= 7 && path.ToLower().Substring(0, 7) == "/custom")
+            if (path.Length >= 8 && path.ToLower().Substring(0, 4) == "/content")
             {
                 return;
             }
@@ -64,6 +61,15 @@ namespace MultiTenant
             if (redirectPath != null)
             {
                 Context.RewritePath(redirectPath);
+                return;
+            }
+            if (path.ToLower().IndexOf(corePath.ToLower()) >= 0)
+            {
+                Context.RewritePath("/Goa" + path);
+            }
+            if (path.ToLower().IndexOf(customPath.ToLower()) >= 0)
+            {
+                Context.RewritePath("/Goa" + path.Substring(0, customPath.Length) + "/" + currentTenant.Id.ToString() + path.Substring(customPath.Length, path.Length - customPath.Length));
             }
         }
     }
