@@ -7,17 +7,17 @@ using MultiTenant.Controllers;
 using MultiTenant.Models;
 using MultiTenant.Service.Interfaces;
 
-namespace MultiTenant.Areas.Microsoft.Controllers
+namespace MultiTenant.Areas.Apple.Controllers
 {
-    public class MicrosoftStoreController : BaseController
+    public class UserController : BaseController
     {
-        public MicrosoftStoreController(ITenantService tenantService) : base(tenantService)
+        public UserController(ITenantService tenantService) : base(tenantService)
         {
         }
         //
-        // GET: /Microsoft/MicrosoftStore/
+        // GET: /Apple/AppleUser/
 
-        public ActionResult Index()
+        public ActionResult UserView()
         {
             BaseViewModel model = new BaseViewModel();
             model.CurrentTenant = CurrentTenant;

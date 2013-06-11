@@ -136,9 +136,9 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Apple\AppleAreaRegistration.cs" />
-    <Compile Include="Areas\Apple\Controllers\AppleStoreController.cs" />
-    <Compile Include="Areas\Apple\Controllers\AppleUserController.cs" />
-    <Compile Include="Areas\Microsoft\Controllers\MicrosoftStoreController.cs" />
+    <Compile Include="Areas\Apple\Controllers\StoreController.cs" />
+    <Compile Include="Areas\Apple\Controllers\UserController.cs" />
+    <Compile Include="Areas\Microsoft\Controllers\StoreController.cs" />
     <Compile Include="Areas\Microsoft\MicrosoftAreaRegistration.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -273,11 +273,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Apple\Views\Web.config" />
-    <Content Include="Areas\Apple\Views\AppleStore\Index.cshtml" />
+    <Content Include="Areas\Apple\Views\Store\Index.cshtml" />
     <Content Include="Areas\Microsoft\Views\Web.config" />
-    <Content Include="Areas\Microsoft\Views\MicrosoftStore\Index.cshtml" />
+    <Content Include="Areas\Microsoft\Views\Store\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Web.config" />
-    <Content Include="Areas\Apple\Views\AppleUser\Index.cshtml" />
+    <Content Include="Areas\Apple\Views\User\Index.cshtml" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

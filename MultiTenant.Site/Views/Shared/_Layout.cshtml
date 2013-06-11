@@ -39,7 +39,7 @@
                         location.reload();
                     },
                     type: 'PUT',
-                    url: 'api/TenantApi/Put/?id=' + id.toString()
+                    url: '@Url.Action("Put", "api/TenantApi", new { Area = ""})' + '?id=' + id.toString()
                 });
             }
 
@@ -55,7 +55,7 @@
                     transport: {
                         read: {
                             type: 'GET',
-                            url: 'api/TenantApi/GetAll'
+                            url: '@Url.Action("GetAll", "api/TenantApi", new { Area = ""})'
                         }
                     }
                 }
@@ -68,7 +68,7 @@
                     $('#tenants').data('kendoDropDownList').value(result.Id);
                 },
                 type: 'GET',
-                url: 'api/TenantApi/Get'
+                url: '@Url.Action("Get", "api/TenantApi", new { Area = ""})'
             });
         })()    
 

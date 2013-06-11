@@ -18,12 +18,11 @@ namespace MultiTenant.Areas.Admin.Controllers
         //
         // GET: /User/
 
-        public ActionResult Index()
+        public ActionResult UserView()
         {
             BaseViewModel model = new BaseViewModel();
             model.CurrentTenant = CurrentTenant;
             return View("Index", model);
         }
-
     }
 }

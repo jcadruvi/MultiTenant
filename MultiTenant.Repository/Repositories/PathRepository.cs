@@ -23,14 +23,14 @@ namespace MultiTenant.Repository.Repositories
             _paths.Add(new RequestPath
             {
                 TenantId = 1,
-                OriginalPath = "/store",
-                NewPath = "/apple/applestore"
+                OriginalPath = "/store/store",
+                NewPath = "/apple/store/store"
             });
             _paths.Add(new RequestPath
             {
                 TenantId = 1,
-                OriginalPath = "/admin/user",
-                NewPath = "/apple/appleuser"
+                OriginalPath = "/admin/user/userview",
+                NewPath = "/apple/user/userview"
             });
             _paths.Add(new RequestPath
             {
@@ -42,8 +42,8 @@ namespace MultiTenant.Repository.Repositories
             _paths.Add(new RequestPath
             {
                 TenantId = 2,
-                OriginalPath = "/store",
-                NewPath = "/microsoft/microsoftstore"
+                OriginalPath = "/store/store",
+                NewPath = "/microsoft/store/store"
             });
 
             #endregion

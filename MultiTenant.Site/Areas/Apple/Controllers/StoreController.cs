@@ -9,15 +9,15 @@ using MultiTenant.Service.Interfaces;
 
 namespace MultiTenant.Areas.Apple.Controllers
 {
-    public class AppleUserController : BaseController
+    public class StoreController : BaseController
     {
-        public AppleUserController(ITenantService tenantService) : base(tenantService)
+        public StoreController(ITenantService tenantService) : base(tenantService)
         {
         }
         //
-        // GET: /Apple/AppleUser/
+        // GET: /Apple/AppleStore/
 
-        public ActionResult Index()
+        public ActionResult Store()
         {
             BaseViewModel model = new BaseViewModel();
             model.CurrentTenant = CurrentTenant;

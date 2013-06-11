@@ -18,7 +18,7 @@ namespace MultiTenant.Controllers
         //
         // GET: /Store/
 
-        public ActionResult Index()
+        public ActionResult Store()
         {
             BaseViewModel model = new BaseViewModel();
             model.CurrentTenant = CurrentTenant;
