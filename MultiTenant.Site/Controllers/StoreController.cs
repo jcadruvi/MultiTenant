@@ -20,7 +20,7 @@ namespace MultiTenant.Controllers
 
         public ActionResult Store()
         {
-            BaseViewModel model = new BaseViewModel();
+            StoreViewModel model = new StoreViewModel();
             model.CurrentTenant = CurrentTenant;
             return View("Index", model);
         }
