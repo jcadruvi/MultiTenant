@@ -1,4 +1,6 @@
 ﻿@model MultiTenant.Models.RetailerViewModel
+@using MultiTenant.Helpers
+@using MultiTenant.Common.Types
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -23,17 +25,21 @@
     </div>
 </div>
 
-<div class="panel retailerPanel">
-    <div class="panelHeader"><strong>Sales</strong></div>
-    <div>
-        <span class="retailerLabel">Calendar Sales:</span>
-        <span>@Html.TextBoxFor(model => model.CalendarSales)</span>
-    </div>
-    <div>
-        <span class="retailerLabel">Fiscal Sales:</span>
-        <span>@Html.TextBoxFor(model => model.FiscalSales)</span>
-    </div>
-</div>
+
+ @if (Html.Access(Model.CurrentTenant, AccessTypes.Premium))
+ {
+     <div class="panel retailerPanel">
+         <div class="panelHeader"><strong>Sales</strong></div>
+         <div>
+             <span class="retailerLabel">Calendar Sales:</span>
+             <span>@Html.TextBoxFor(model => model.CalendarSales)</span>
+         </div>
+         <div>
+             <span class="retailerLabel">Fiscal Sales:</span>
+             <span>@Html.TextBoxFor(model => model.FiscalSales)</span>
+         </div>
+     </div>
+ }
 
 <script type="text/javascript">
     $("#retailerGrid").kendoGrid({
