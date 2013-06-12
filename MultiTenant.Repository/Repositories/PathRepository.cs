@@ -24,12 +24,6 @@ namespace MultiTenant.Repository.Repositories
             _paths.Add(new RequestPath
             {
                 TenantId = TenantIds.AppleId,
-                OriginalPath = "/store/store",
-                NewPath = "/apple/store/store"
-            });
-            _paths.Add(new RequestPath
-            {
-                TenantId = TenantIds.AppleId,
                 OriginalPath = "/admin/user/userview",
                 NewPath = "/apple/user/userview"
             });
@@ -39,18 +33,14 @@ namespace MultiTenant.Repository.Repositories
                 OriginalPath = "/report/report",
                 NewPath = "/apple/report/report"
             });
-            _paths.Add(new RequestPath
-            {
-                TenantId = TenantIds.MicrosoftId,
-                OriginalPath = "/store/store",
-                NewPath = "/microsoft/store/store"
-            });
+
             _paths.Add(new RequestPath
             {
                 TenantId = TenantIds.MicrosoftId,
                 OriginalPath = "/report/report",
                 NewPath = "/microsoft/report/report"
             });
+
             #endregion
         }
         public static PathRepository Instance { get { return _instance; } }
