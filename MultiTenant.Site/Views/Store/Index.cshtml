@@ -28,7 +28,7 @@
             transport: {
                 read: function (options) {
                     $.ajax({
-                        url: "@Url.Action("GetRetailers", "api/RetailerApi", new { Area = ""})",
+                        url: "@Url.Action("GetStores", "api/StoreApi", new { Area = ""})",
                         success: function (result) {
                             options.success(result);
                         },
@@ -40,8 +40,10 @@
                 model: {
                     id: "Id",
                     fields: {
+                        City: { type: "city" },
                         Name: { type: "string" },
                         Number: { type: "number" },
+                        State: { type: "string"}
                     }
                 }
             }
@@ -49,7 +51,7 @@
         columns: [
             {
                 field: "Id",
-                title: "Retailer Id",
+                title: "Id",
                 width: "70px"
             },
             {
@@ -60,6 +62,16 @@
                 field: "Number",
                 title: "Number",
                 width: "90px"
+            },
+            {
+                field: "City",
+                title: "City",
+                width: "180px"
+            },
+            {
+            field: "State",
+            title: "State",
+            width: "80px"
             }]
     });
 </script>
