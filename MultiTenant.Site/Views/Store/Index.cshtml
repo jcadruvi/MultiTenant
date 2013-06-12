@@ -4,3 +4,62 @@
 }
 
 <h2>This is the CORE store.</h2>
+
+<div id="storeGrid"></div>
+
+<script type="text/javascript">
+    $("#storeGrid").kendoGrid({
+        autoBind: true,
+        change: function () {
+        },
+        filterable: false,
+        groupable: false,
+        height: "300px",
+        pageable: true,
+        resizeable: true,
+        selectable: "single, row",
+        sortable: {
+            mode: "single",
+            allowUnsort: false
+        },
+        dataSource: {
+            pageSize: 30,
+            type: "json",
+            transport: {
+                read: function (options) {
+                    $.ajax({
+                        url: "@Url.Action("GetRetailers", "api/RetailerApi", new { Area = ""})",
+                        success: function (result) {
+                            options.success(result);
+                        },
+                        type: "GET"
+                    });
+                }
+            },
+            schema: {
+                model: {
+                    id: "Id",
+                    fields: {
+                        Name: { type: "string" },
+                        Number: { type: "number" },
+                    }
+                }
+            }
+        },
+        columns: [
+            {
+                field: "Id",
+                title: "Retailer Id",
+                width: "70px"
+            },
+            {
+                field: "Name",
+                title: "Name",
+                width: "180px"
+            }, {
+                field: "Number",
+                title: "Number",
+                width: "90px"
+            }]
+    });
+</script>

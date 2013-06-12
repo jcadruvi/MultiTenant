@@ -63,6 +63,7 @@ namespace MultiTenant.App_Start
             kernel.Bind<ILinkService>().To<LinkService>();
             kernel.Bind<IPathService>().To<PathService>();
             kernel.Bind<IRetailerService>().To<RetailerService>();
+            kernel.Bind<IStoreService>().To<StoreService>();
             kernel.Bind<ITenantService>().To<TenantService>();
         }        
     }
