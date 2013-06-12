@@ -156,6 +156,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\RetailerApiController.cs" />
     <Compile Include="Controllers\RetailerController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
@@ -308,6 +309,7 @@
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Shared\Error404.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MultiTenant.Common\MultiTenant.Common.csproj">

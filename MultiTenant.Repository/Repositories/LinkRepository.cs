@@ -76,6 +76,14 @@ namespace MultiTenant.Repository.Repositories
             });
             _links.Add(new Link
             {
+                Action = "Index",
+                Controller = "Report",
+                Name = "Report",
+                TennantId = TenantIds.AppleId,
+                Type = LinkTypes.Menu
+            });
+            _links.Add(new Link
+            {
                 Action = "Store",
                 Controller = "Store",
                 Name = "Store",
@@ -118,6 +126,14 @@ namespace MultiTenant.Repository.Repositories
             });
             _links.Add(new Link
             {
+                Action = "Index",
+                Controller = "Report",
+                Name = "Report",
+                TennantId = TenantIds.MicrosoftId,
+                Type = LinkTypes.Menu
+            });
+            _links.Add(new Link
+            {
                 Action = "Store",
                 Controller = "Store",
                 Name = "Store",
@@ -137,6 +153,14 @@ namespace MultiTenant.Repository.Repositories
                 Action = "Index",
                 Controller = "Image",
                 Name = "Image",
+                TennantId = TenantIds.BestBuyId,
+                Type = LinkTypes.Menu
+            });
+            _links.Add(new Link
+            {
+                Action = "Index",
+                Controller = "Report",
+                Name = "Report",
                 TennantId = TenantIds.BestBuyId,
                 Type = LinkTypes.Menu
             });
