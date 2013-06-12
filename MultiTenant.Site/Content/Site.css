@@ -117,6 +117,17 @@ textarea {
     width: 300px;
 }
 
+.storeLabel {
+    display: inline-block;
+    margin-left: 10px;
+    width: 100px;
+}
+
+.storePanel {
+    margin-top: 10px;
+    width: 300px;
+}
+
 #tenantsParent {
     margin: 0 0 10px 0;
 }

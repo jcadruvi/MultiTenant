@@ -1,4 +1,5 @@
-﻿@{
+﻿@model MultiTenant.Models.StoreViewModel
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -6,6 +7,33 @@
 <h2>This is the CORE store.</h2>
 
 <div id="storeGrid"></div>
+
+<div class="panel storePanel">
+    <div class="panelHeader">
+        <input class="k-button" type="button" value="+" />
+        <strong>Store</strong>
+    </div>
+    <div>
+        <span class="storeLabel">Id:</span>
+        <span>@Html.TextBoxFor(model => model.Id)</span>
+    </div>
+    <div>
+        <span class="storeLabel">Name:</span>
+        <span>@Html.TextBoxFor(model => model.Name)</span>
+    </div>
+    <div>
+        <span class="storeLabel">Number:</span>
+        <span>@Html.TextBoxFor(model => model.Number)</span>
+    </div>
+    <div>
+        <span class="storeLabel">City:</span>
+        <span>@Html.TextBoxFor(model => model.City)</span>
+    </div>
+    <div>
+        <span class="storeLabel">Number:</span>
+        <span>@Html.TextBoxFor(model => model.State)</span>
+    </div>
+</div>
 
 <script type="text/javascript">
     $("#storeGrid").kendoGrid({
