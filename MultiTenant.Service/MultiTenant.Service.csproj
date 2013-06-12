@@ -45,6 +45,7 @@
     <Compile Include="Interfaces\IRetailerService.cs" />
     <Compile Include="Interfaces\IStoreService.cs" />
     <Compile Include="Interfaces\ITenantService.cs" />
+    <Compile Include="Interfaces\ITraitService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccessService.cs" />
     <Compile Include="Services\LinkService.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Services\RetailerService.cs" />
     <Compile Include="Services\StoreService.cs" />
     <Compile Include="Services\TenantService.cs" />
+    <Compile Include="Services\TraitService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MultiTenant.Model\MultiTenant.Model.csproj">

@@ -44,6 +44,7 @@
     <Compile Include="Interfaces\IPathRepository.cs" />
     <Compile Include="Interfaces\IRetailerRepository.cs" />
     <Compile Include="Interfaces\ITenantRepository.cs" />
+    <Compile Include="Interfaces\ITraitRepository.cs" />
     <Compile Include="IStoreRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccessRepository.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Repositories\RetailerRepository.cs" />
     <Compile Include="Repositories\StoreRepository.cs" />
     <Compile Include="Repositories\TenantRepository.cs" />
+    <Compile Include="Repositories\TraitRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MultiTenant.Common\MultiTenant.Common.csproj">
