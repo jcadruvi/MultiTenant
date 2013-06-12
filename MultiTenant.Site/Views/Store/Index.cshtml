@@ -1,4 +1,5 @@
-﻿@model MultiTenant.Models.StoreViewModel
+﻿@using MultiTenant.Helpers
+@model MultiTenant.Models.StoreViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,96 +11,150 @@
 
 <div class="panel storePanel">
     <div class="panelHeader">
-        <input class="k-button" type="button" value="+" />
+        <input class="k-button" data-bind="click: onStoreClick" id="storeButton" type="button" value="-" />
         <strong>Store</strong>
     </div>
-    <div>
-        <span class="storeLabel">Id:</span>
-        <span>@Html.TextBoxFor(model => model.Id)</span>
-    </div>
-    <div>
-        <span class="storeLabel">Name:</span>
-        <span>@Html.TextBoxFor(model => model.Name)</span>
-    </div>
-    <div>
-        <span class="storeLabel">Number:</span>
-        <span>@Html.TextBoxFor(model => model.Number)</span>
-    </div>
-    <div>
-        <span class="storeLabel">City:</span>
-        <span>@Html.TextBoxFor(model => model.City)</span>
-    </div>
-    <div>
-        <span class="storeLabel">Number:</span>
-        <span>@Html.TextBoxFor(model => model.State)</span>
+    <div id="storeDetail">
+        <div>
+            <span class="storeLabel">Id:</span>
+            <span>@Html.TextBoxFor(model => model.Id)</span>
+        </div>
+        <div>
+            <span class="storeLabel">Name:</span>
+            <span>@Html.TextBoxFor(model => model.Name)</span>
+        </div>
+        <div>
+            <span class="storeLabel">Number:</span>
+            <span>@Html.TextBoxFor(model => model.Number)</span>
+        </div>
+        <div>
+            <span class="storeLabel">City:</span>
+            <span>@Html.TextBoxFor(model => model.City)</span>
+        </div>
+        <div>
+            <span class="storeLabel">Number:</span>
+            <span>@Html.TextBoxFor(model => model.State)</span>
+        </div>
     </div>
 </div>
 
+<div id="traitViewGrid"></div>
+
+<script src="@Url.Script("StoreViewModel.js")"></script>
+
 <script type="text/javascript">
-    $("#storeGrid").kendoGrid({
-        autoBind: true,
-        change: function () {
-        },
-        filterable: false,
-        groupable: false,
-        height: "300px",
-        pageable: true,
-        resizeable: true,
-        selectable: "single, row",
-        sortable: {
-            mode: "single",
-            allowUnsort: false
-        },
-        dataSource: {
-            pageSize: 30,
-            type: "json",
-            transport: {
-                read: function (options) {
-                    $.ajax({
-                        url: "@Url.Action("GetStores", "api/StoreApi", new { Area = ""})",
-                        success: function (result) {
-                            options.success(result);
-                        },
-                        type: "GET"
-                    });
-                }
+    (function () {
+        var storeViewModel = new StoreViewModel();
+        $("#storeGrid").kendoGrid({
+            autoBind: true,
+            change: function() {
             },
-            schema: {
-                model: {
-                    id: "Id",
-                    fields: {
-                        City: { type: "city" },
-                        Name: { type: "string" },
-                        Number: { type: "number" },
-                        State: { type: "string"}
+            filterable: false,
+            groupable: false,
+            height: "300px",
+            pageable: true,
+            resizeable: true,
+            selectable: "single, row",
+            sortable: {
+                mode: "single",
+                allowUnsort: false
+            },
+            dataSource: {
+                pageSize: 30,
+                type: "json",
+                transport: {
+                    read: function(options) {
+                        $.ajax({
+                            url: "@Url.Action("GetStores", "api/StoreApi", new { Area = ""})",
+                            success: function(result) {
+                                options.success(result);
+                            },
+                            type: "GET"
+                        });
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            City: { type: "city" },
+                            Name: { type: "string" },
+                            Number: { type: "number" },
+                            State: { type: "string" }
+                        }
                     }
                 }
-            }
-        },
-        columns: [
-            {
-                field: "Id",
-                title: "Id",
-                width: "70px"
             },
-            {
-                field: "Name",
-                title: "Name",
-                width: "180px"
-            }, {
-                field: "Number",
-                title: "Number",
-                width: "90px"
+            columns: [
+                {
+                    field: "Id",
+                    title: "Id",
+                    width: "70px"
+                },
+                {
+                    field: "Name",
+                    title: "Name",
+                    width: "180px"
+                }, {
+                    field: "Number",
+                    title: "Number",
+                    width: "90px"
+                },
+                {
+                    field: "City",
+                    title: "City",
+                    width: "180px"
+                },
+                {
+                    field: "State",
+                    title: "State",
+                    width: "80px"
+                }]
+        });
+        $("#traitViewGrid").kendoGrid({
+            autoBind: true,
+            change: function () {
             },
-            {
-                field: "City",
-                title: "City",
-                width: "180px"
+            filterable: false,
+            groupable: false,
+            height: "300px",
+            pageable: true,
+            resizeable: true,
+            selectable: "single, row",
+            sortable: {
+                mode: "single",
+                allowUnsort: false
             },
-            {
-            field: "State",
-            title: "State",
-            width: "80px"
-            }]
-    });
+            dataSource: {
+                pageSize: 30,
+                type: "json",
+                transport: {
+                    read: function (options) {
+                        $.ajax({
+                            url: "@Url.Action("GetStores", "api/StoreApi", new { Area = ""})",
+                            success: function (result) {
+                                options.success(result);
+                            },
+                            type: "GET"
+                        });
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Name: { type: "string" },
+                        }
+                    }
+                }
+            },
+            columns: [
+                {
+                    field: "Name",
+                    title: "Name",
+                    width: "180px"
+                }]
+        });
+        ko.applyBindings(storeViewModel);
+    })();
 </script>

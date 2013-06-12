@@ -19,5 +19,9 @@ namespace MultiTenant.Helpers
         {
             return helper.Content("~/Custom/" + relativePath);
         }
+        public static string Script(this UrlHelper helper, string scriptName)
+        {
+            return helper.Content("~/Scripts/" + scriptName);
+        }
     }
 }
