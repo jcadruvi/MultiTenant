@@ -145,9 +145,11 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Apple\AppleAreaRegistration.cs" />
+    <Compile Include="Areas\Apple\Controllers\ReportController.cs" />
     <Compile Include="Areas\Apple\Controllers\StoreController.cs" />
     <Compile Include="Areas\Apple\Controllers\UserController.cs" />
     <Compile Include="Areas\Display\DisplayAreaRegistration.cs" />
+    <Compile Include="Areas\Microsoft\Controllers\ReportController.cs" />
     <Compile Include="Areas\Microsoft\Controllers\StoreController.cs" />
     <Compile Include="Areas\Microsoft\MicrosoftAreaRegistration.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
@@ -299,6 +301,8 @@
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Apple\Views\User\Index.cshtml" />
     <Content Include="Areas\Display\Views\Web.config" />
+    <Content Include="Areas\Apple\Views\Report\Index.cshtml" />
+    <Content Include="Areas\Microsoft\Views\Report\Index.cshtml" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

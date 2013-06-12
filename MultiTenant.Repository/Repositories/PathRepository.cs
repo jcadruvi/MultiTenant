@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MultiTenant.Common.Types;
 using MultiTenant.Model;
 using MultiTenant.Repository.Interfaces;
 
@@ -22,30 +23,34 @@ namespace MultiTenant.Repository.Repositories
 
             _paths.Add(new RequestPath
             {
-                TenantId = 1,
+                TenantId = TenantIds.AppleId,
                 OriginalPath = "/store/store",
                 NewPath = "/apple/store/store"
             });
             _paths.Add(new RequestPath
             {
-                TenantId = 1,
+                TenantId = TenantIds.AppleId,
                 OriginalPath = "/admin/user/userview",
                 NewPath = "/apple/user/userview"
             });
             _paths.Add(new RequestPath
             {
-                TenantId = 1,
-                OriginalPath = "Images/userCoreCustom.jpg",
-                NewPath = "/1/Images/userCoreCustom.jpg"
+                TenantId = TenantIds.AppleId,
+                OriginalPath = "/report/report",
+                NewPath = "/apple/report/report"
             });
-
             _paths.Add(new RequestPath
             {
-                TenantId = 2,
+                TenantId = TenantIds.MicrosoftId,
                 OriginalPath = "/store/store",
                 NewPath = "/microsoft/store/store"
             });
-
+            _paths.Add(new RequestPath
+            {
+                TenantId = TenantIds.MicrosoftId,
+                OriginalPath = "/report/report",
+                NewPath = "/microsoft/report/report"
+            });
             #endregion
         }
         public static PathRepository Instance { get { return _instance; } }

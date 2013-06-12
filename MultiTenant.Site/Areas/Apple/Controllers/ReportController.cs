@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MultiTenant.Controllers;
 using MultiTenant.Models;
 using MultiTenant.Service.Interfaces;
 
-namespace MultiTenant.Controllers
+namespace MultiTenant.Areas.Apple.Controllers
 {
     public class ReportController : BaseController
     {
@@ -14,7 +15,7 @@ namespace MultiTenant.Controllers
         {
         }
         //
-        // GET: /Report/
+        // GET: /Apple/Report/
 
         public ActionResult Report()
         {

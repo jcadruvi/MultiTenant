@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MultiTenant.Controllers;
 using MultiTenant.Models;
 using MultiTenant.Service.Interfaces;
 
-namespace MultiTenant.Controllers
+namespace MultiTenant.Areas.Microsoft.Controllers
 {
     public class ReportController : BaseController
     {
-        public ReportController(ITenantService tenantService) : base(tenantService)
+        public ReportController(ITenantService tenantService)
+            : base(tenantService)
         {
         }
         //
-        // GET: /Report/
+        // GET: /Microsoft/Report/
 
         public ActionResult Report()
         {

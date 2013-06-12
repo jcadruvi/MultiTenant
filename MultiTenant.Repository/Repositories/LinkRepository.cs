@@ -76,7 +76,7 @@ namespace MultiTenant.Repository.Repositories
             });
             _links.Add(new Link
             {
-                Action = "Index",
+                Action = "Report",
                 Controller = "Report",
                 Name = "Report",
                 TennantId = TenantIds.AppleId,
@@ -126,7 +126,7 @@ namespace MultiTenant.Repository.Repositories
             });
             _links.Add(new Link
             {
-                Action = "Index",
+                Action = "Report",
                 Controller = "Report",
                 Name = "Report",
                 TennantId = TenantIds.MicrosoftId,
@@ -158,7 +158,7 @@ namespace MultiTenant.Repository.Repositories
             });
             _links.Add(new Link
             {
-                Action = "Index",
+                Action = "Report",
                 Controller = "Report",
                 Name = "Report",
                 TennantId = TenantIds.BestBuyId,
