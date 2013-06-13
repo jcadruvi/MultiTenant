@@ -117,38 +117,8 @@ textarea {
     width: 300px;
 }
 
-.storeLabel {
-    display: inline-block;
-    margin-left: 10px;
-    width: 100px;
-}
-
-.storePanel {
-    margin-top: 10px;
-    width: 300px;
-}
-
 #tenantsParent {
     margin: 0 0 10px 0;
-}
-
-#traitAddButton {
-    float: left;
-    margin: 200px 0 0 10px;
-    width: 40px;
-}
-
-#traitAddPanel {
-    height: 400px;
-    margin: 10px 0 0 250px;
-    width: 200px;
-}
-
-#traitViewPanel {
-    height: 400px;
-    float: left;
-    margin: 10px 0 0 0;
-    width: 200px;
 }
 
 .userImage {

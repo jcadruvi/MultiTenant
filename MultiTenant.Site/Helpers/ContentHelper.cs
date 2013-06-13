@@ -23,5 +23,9 @@ namespace MultiTenant.Helpers
         {
             return helper.Content("~/Scripts/" + scriptName);
         }
+        public static string Style(this UrlHelper helper, string styleName)
+        {
+            return helper.Content("~/Content/" + styleName);
+        }
     }
 }
