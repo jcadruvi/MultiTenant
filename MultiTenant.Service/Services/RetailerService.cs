@@ -11,7 +11,7 @@ namespace MultiTenant.Service.Services
 {
     public class RetailerService : IRetailerService
     {
-        private RetailerRepository _repository;
+        private readonly RetailerRepository _repository;
         public RetailerService()
         {
             _repository = RetailerRepository.Instance;

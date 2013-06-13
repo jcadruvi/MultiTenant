@@ -13,7 +13,7 @@ namespace MultiTenant.Service.Services
 {
     public class StoreService : IStoreService
     {
-        private IStoreRepository _storeRepository;
+        private readonly IStoreRepository _storeRepository;
         public StoreService()
         {
             _storeRepository = StoreRepository.Instance;

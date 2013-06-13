@@ -11,7 +11,7 @@ namespace MultiTenant.Service.Services
 {
     public class ProgramService : IProgramService
     {
-        private IProgramRepository _programRepository;
+        private readonly IProgramRepository _programRepository;
         public ProgramService()
         {
             _programRepository = ProgramRepository.Instance;

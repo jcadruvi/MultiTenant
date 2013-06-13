@@ -12,7 +12,7 @@ namespace MultiTenant.Service.Services
 {
     public class TraitService : ITraitService
     {
-        private ITraitRepository _traitRepository;
+        private readonly ITraitRepository _traitRepository;
         public TraitService()
         {
             _traitRepository = TraitRepository.Instance;

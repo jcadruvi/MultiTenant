@@ -12,7 +12,7 @@ namespace MultiTenant.Service.Services
 {
     public class LinkService : ILinkService
     {
-        private ILinkRepository _repository;
+        private readonly ILinkRepository _repository;
         public LinkService()
         {
             _repository = LinkRepository.Instance;

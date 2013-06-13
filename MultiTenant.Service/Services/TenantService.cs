@@ -11,7 +11,7 @@ namespace MultiTenant.Service.Services
 {
     public class TenantService : ITenantService
     {
-        private TenantRepository _repository;
+        private readonly TenantRepository _repository;
         public TenantService()
         {
             _repository = TenantRepository.Instance;

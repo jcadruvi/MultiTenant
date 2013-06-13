@@ -10,7 +10,7 @@ namespace MultiTenant.Service.Services
 {
     public class PathService : IPathService
     {
-        private PathRepository _repository;
+        private readonly PathRepository _repository;
         public PathService()
         {
             _repository = PathRepository.Instance;
