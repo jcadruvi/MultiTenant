@@ -170,7 +170,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\HtmlHelperExtensions.cs" />
+    <Compile Include="Helpers\AccessHelper.cs" />
     <Compile Include="Helpers\MenuHtmlHelper.cs" />
     <Compile Include="Helpers\ContentHelper.cs" />
     <Compile Include="Models\BaseViewModel.cs" />

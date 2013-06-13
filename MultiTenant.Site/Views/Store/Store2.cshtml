@@ -44,7 +44,7 @@
     </div>
 </div>
 
-@if (Html.Access(Model.CurrentTenant, AccessTypes.ProgramFeature))
+@if (AccessHelper.HasAccess(Model.CurrentTenant, AccessTypes.ProgramFeature))
 {
     <div class="panel storePanel">
         <div class="panelHeader">
@@ -52,7 +52,18 @@
             <strong>Programs</strong>
         </div>
         <div id="programDetail">
-            
+            <div class="programLine">
+                <span class="programLabel">Program:</span><span class="programDropDown"></span>
+                <span class="programLabel">Survey:</span><span class="surveyDropDown"></span>
+            </div>
+            <div class="programLine">
+                <span class="programLabel">Program:</span><span class="programDropDown"></span>
+                <span class="programLabel">Survey:</span><span class="surveyDropDown"></span>
+            </div>
+            <div class="programLine">
+                <span class="programLabel">Program:</span><span class="programDropDown"></span>
+                <span class="programLabel">Survey:</span><span class="surveyDropDown"></span>
+            </div>
         </div>
     </div>
 }
@@ -69,25 +80,30 @@
             </div>
             <div id="traitViewGrid"></div>
         </div>
-
-        <div id="traitAddButton">
-            <input type="button" value="+" />
-        </div>
-
-        <div class="panel" id="traitAddPanel">
-            <div class="panelHeader">
-                <strong>Add Traits</strong>
+        @if (!AccessHelper.HasAccess(Model.CurrentTenant, AccessTypes.ProgramFeature))
+        {
+            <div id="traitAddButton">
+                <input type="button" value="+" />
             </div>
-            <div id="traitAddGrid"></div>
-        </div>
+
+            <div class="panel" id="traitAddPanel">
+                <div class="panelHeader">
+                    <strong>Add Traits</strong>
+                </div>
+                <div id="traitAddGrid"></div>
+            </div>
+        }
     </div>
 </div>
 
 <script src="@Url.Script("StoreViewModel.js")"></script>
 
 <script type="text/javascript">
-    (function () {
-        var storeViewModel = new StoreViewModel();
+    (function() {
+        var programFeature = @Html.Raw(Json.Encode(AccessHelper.HasAccess(Model.CurrentTenant, AccessTypes.ProgramFeature)));
+        var storeViewModel = new StoreViewModel({
+            programFeature: programFeature
+        });
         $("#storeGrid").kendoGrid({
             autoBind: true,
             change: function() {
@@ -154,96 +170,170 @@
                     width: "80px"
                 }]
         });
-        $("#traitViewGrid").kendoGrid({
-            autoBind: true,
-            change: function () {
-            },
-            filterable: false,
-            groupable: false,
-            height: "90%",
-            pageable: true,
-            resizeable: true,
-            selectable: "single, row",
-            sortable: {
-                mode: "single",
-                allowUnsort: false
-            },
-            dataSource: {
-                pageSize: 30,
-                type: "json",
-                transport: {
-                    read: function (options) {
-                        $.ajax({
-                            url: "@Url.Action("GetViewTraits", "api/TraitApi", new { Area = ""})",
-                            success: function (result) {
-                                options.success(result);
-                            },
-                            type: "GET"
-                        });
-                    }
-                },
-                schema: {
-                    model: {
-                        id: "Id",
-                        fields: {
-                            Name: { type: "string" },
+        if (programFeature) {
+            $('.programDropDown').kendoComboBox({
+                dataTextField: "Value",
+                dataValueField: "Key",
+                dataSource: {
+                    transport: {
+                        read: {
+                            type: 'GET',
+                            url: '@Url.Action("GetProgramItems", "api/ProgramApi", new { Area = ""})'
                         }
                     }
                 }
-            },
-            columns: [
-                {
-                    field: "Name",
-                    title: "Name",
-                    width: "180px"
-                }]
-        });
-        storeViewModel.traitViewGridData = $("#traitViewGrid").data('kendoGrid');
-        $("#traitAddGrid").kendoGrid({
-            autoBind: true,
-            change: function () {
-            },
-            height: "90%",
-            filterable: false,
-            groupable: false,
-            pageable: true,
-            resizeable: true,
-            selectable: "single, row",
-            sortable: {
-                mode: "single",
-                allowUnsort: false
-            },
-            dataSource: {
-                pageSize: 30,
-                type: "json",
-                transport: {
-                    read: function (options) {
-                        $.ajax({
-                            url: "@Url.Action("GetAddTraits", "api/TraitApi", new { Area = ""})",
-                            success: function (result) {
-                                options.success(result);
-                            },
-                            type: "GET"
-                        });
-                    }
-                },
-                schema: {
-                    model: {
-                        id: "Id",
-                        fields: {
-                            Name: { type: "string" },
+            });
+            $('.surveyDropDown').kendoComboBox({
+                dataTextField: "Value",
+                dataValueField: "Key",
+                dataSource: {
+                    transport: {
+                        read: {
+                            type: 'GET',
+                            url: '@Url.Action("GetSurveyItems", "api/SurveyApi", new { Area = ""})'
                         }
                     }
                 }
-            },
-            columns: [
-                {
-                    field: "Name",
-                    title: "Name",
-                    width: "180px"
-                }]
-        });
-        storeViewModel.traitAddGridData = $("#traitAddGrid").data('kendoGrid');
+            });
+        }
+        if (programFeature) {
+            $("#traitViewGrid").kendoGrid({
+                autoBind: true,
+                change: function() {
+                },
+                filterable: false,
+                groupable: false,
+                height: "90%",
+                pageable: true,
+                resizeable: true,
+                selectable: "single, row",
+                sortable: {
+                    mode: "single",
+                    allowUnsort: false
+                },
+                dataSource: {
+                    pageSize: 30,
+                    type: "json",
+                    transport: {
+                        read: function(options) {
+                            $.ajax({
+                                url: "@Url.Action("GetViewTraits", "api/TraitApi", new { Area = ""})",
+                                success: function(result) {
+                                    options.success(result);
+                                },
+                                type: "GET"
+                            });
+                        }
+                    },
+                    schema: {
+                        model: {
+                            id: "Id",
+                            fields: {
+                                Name: { type: "string" },
+                            }
+                        }
+                    }
+                },
+                columns: [
+                    {
+                        field: "Name",
+                        title: "Name",
+                        width: "180px"
+                    }]
+            });
+            storeViewModel.traitViewGridData = $("#traitViewGrid").data('kendoGrid');
+        } else {
+            $("#traitViewGrid").kendoGrid({
+                autoBind: true,
+                change: function() {
+                },
+                filterable: false,
+                groupable: false,
+                height: "90%",
+                pageable: true,
+                resizeable: true,
+                selectable: "single, row",
+                sortable: {
+                    mode: "single",
+                    allowUnsort: false
+                },
+                dataSource: {
+                    pageSize: 30,
+                    type: "json",
+                    transport: {
+                        read: function(options) {
+                            $.ajax({
+                                url: "@Url.Action("GetViewTraits", "api/TraitApi", new { Area = ""})",
+                                success: function(result) {
+                                    options.success(result);
+                                },
+                                type: "GET"
+                            });
+                        }
+                    },
+                    schema: {
+                        model: {
+                            id: "Id",
+                            fields: {
+                                Name: { type: "string" },
+                            }
+                        }
+                    }
+                },
+                columns: [
+                    {
+                        field: "Name",
+                        title: "Name",
+                        width: "180px"
+                    }]
+            });
+            storeViewModel.traitViewGridData = $("#traitViewGrid").data('kendoGrid');
+            $("#traitAddGrid").kendoGrid({
+                autoBind: true,
+                change: function() {
+                },
+                height: "90%",
+                filterable: false,
+                groupable: false,
+                pageable: true,
+                resizeable: true,
+                selectable: "single, row",
+                sortable: {
+                    mode: "single",
+                    allowUnsort: false
+                },
+                dataSource: {
+                    pageSize: 30,
+                    type: "json",
+                    transport: {
+                        read: function(options) {
+                            $.ajax({
+                                url: "@Url.Action("GetAddTraits", "api/TraitApi", new { Area = ""})",
+                                success: function(result) {
+                                    options.success(result);
+                                },
+                                type: "GET"
+                            });
+                        }
+                    },
+                    schema: {
+                        model: {
+                            id: "Id",
+                            fields: {
+                                Name: { type: "string" },
+                            }
+                        }
+                    }
+                },
+                columns: [
+                    {
+                        field: "Name",
+                        title: "Name",
+                        width: "180px"
+                    }]
+            });
+            storeViewModel.traitAddGridData = $("#traitAddGrid").data('kendoGrid');
+        }
         ko.applyBindings(storeViewModel);
     })();
 </script>

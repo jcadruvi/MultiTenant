@@ -1,4 +1,11 @@
-﻿
+﻿.programLabel {
+    margin: 0 10px 0 5px;
+}
+
+.programLine {
+    margin: 10px 0 10px 0;
+}
+
 #storeButtonPanel {
     margin: 10px 0 0 0;
 }
@@ -11,35 +18,38 @@
 
 .storePanel {
     margin-top: 10px;
-    width: 475px;
+    width: 490px;
 }
 
 #traitAddButton {
-    float: left;
-    margin: 200px 0 0 10px;
+    display: inline-block;
+    position: relative;
+    margin: 10px 0 0 10px;
+    top: 180px;
     width: 40px;
 }
 
 #traitAddPanel {
+    display: inline-block;
     height: 400px;
-    margin: 10px 0 0 260px;
-    width: 200px;
+    margin: 10px 0 0 0;
+    width: 203px;
 }
 
 .traitPanelExpanded {
     padding: 0 0 10px 0;
     margin: 10px 0 0 0;
-    width: 475px;
+    width: 490px;
 }
 
 .traitPanelCollapsed {
     margin: 10px 0 0 0;
-    width: 475px;
+    width: 490px;
 }
 
 #traitViewPanel {
+    display: inline-block;
     height: 400px;
-    float: left;
-    margin: 0 0 0 10px;
-    width: 200px;
+    margin: 10px 0 0 10px;
+    width: 203px;
 }

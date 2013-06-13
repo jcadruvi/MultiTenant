@@ -20,5 +20,19 @@ namespace MultiTenant.Helpers
             }
             return true;
         }
+
+        public static bool HasAccess(Tenant currentTenant, string[] accessTypes)
+        {
+            IAccessService accessService = DependencyResolver.Current.GetService<IAccessService>();
+            foreach (string accessType in accessTypes)
+            {
+                Access access = accessService.GetAccess(currentTenant.Id, accessType);
+                if (access == null || !access.HasAccess)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

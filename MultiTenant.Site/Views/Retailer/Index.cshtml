@@ -26,7 +26,7 @@
 </div>
 
 
- @if (Html.Access(Model.CurrentTenant, AccessTypes.Premium))
+ @if (AccessHelper.HasAccess(Model.CurrentTenant, AccessTypes.Premium))
  {
      <div class="panel retailerPanel">
          <div class="panelHeader"><strong>Sales</strong></div>

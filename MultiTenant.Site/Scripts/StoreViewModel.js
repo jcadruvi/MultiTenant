@@ -1,4 +1,4 @@
-﻿function StoreViewModel() {
+﻿function StoreViewModel(settings) {
     this.$programButton = $('#programButton');
     this.$programDetail = $('#programDetail');
     this.$storeButton = $('#storeButton');
@@ -7,9 +7,10 @@
     this.$traitAddPanel = $('#traitAddPanel');
     this.$traitButton = $('#traitButton');
     this.$traitDetail = $('#traitDetail');
-    this.$traitPanel = $('#traitPanel')
+    this.$traitPanel = $('#traitPanel');
     this.$traitViewPanel = $('#traitViewPanel');
-    
+
+    this.programFeature = settings.programFeature;
     this.traitAddGridData = null;
     this.traitViewGridData = null;
 }
@@ -51,11 +52,17 @@ StoreViewModel.prototype.doExpandTrait = function() {
 StoreViewModel.prototype.onCollapseAllClick = function() {
     this.doCollapseStore();
     this.doCollapseTrait();
+    if (this.programFeature) {
+        this.doCollapseProgram();
+    }
 };
 
 StoreViewModel.prototype.onExpandAllClick = function() {
     this.doExpandStore();
     this.doExpandTrait();
+    if (this.programFeature) {
+        this.doExpandProgram();
+    }
 };
 
 StoreViewModel.prototype.onProgramClick = function () {
