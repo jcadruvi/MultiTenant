@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MultiTenant.Model;
+using MultiTenant.Repository.Interfaces;
 
 namespace MultiTenant.Repository.Repositories
 {

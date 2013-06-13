@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MultiTenant.Model;
 using MultiTenant.Repository;
+using MultiTenant.Repository.Interfaces;
 using MultiTenant.Repository.Repositories;
 using MultiTenant.Service.Interfaces;
 
