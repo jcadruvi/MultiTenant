@@ -42,6 +42,7 @@
     <Compile Include="Interfaces\IAccessService.cs" />
     <Compile Include="Interfaces\ILinkService.cs" />
     <Compile Include="Interfaces\IPathService.cs" />
+    <Compile Include="Interfaces\IProgramService.cs" />
     <Compile Include="Interfaces\IRetailerService.cs" />
     <Compile Include="Interfaces\IStoreService.cs" />
     <Compile Include="Interfaces\ITenantService.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="Services\AccessService.cs" />
     <Compile Include="Services\LinkService.cs" />
     <Compile Include="Services\PathService.cs" />
+    <Compile Include="Services\ProgramService.cs" />
     <Compile Include="Services\RetailerService.cs" />
     <Compile Include="Services\StoreService.cs" />
     <Compile Include="Services\TenantService.cs" />

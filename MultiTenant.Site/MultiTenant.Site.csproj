@@ -156,6 +156,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\ProgramApiController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\RetailerApiController.cs" />
     <Compile Include="Controllers\RetailerController.cs" />
