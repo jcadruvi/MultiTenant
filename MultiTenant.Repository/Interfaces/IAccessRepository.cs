@@ -10,5 +10,7 @@ namespace MultiTenant.Repository.Interfaces
     public interface IAccessRepository
     {
         Access GetAccess(int tenantId, string type);
+        bool HasAccess(int tenantId, string type);
+        bool HasAccess(int tenantId, string[] types);
     }
 }

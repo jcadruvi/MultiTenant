@@ -10,5 +10,7 @@ namespace MultiTenant.Service.Interfaces
     public interface IAccessService
     {
         Access GetAccess(int tenantId, string type);
+        bool HasAccess(int tenantId, string type);
+        bool HasAccess(int tenantId, string[] types);
     }
 }

@@ -13,26 +13,21 @@ namespace MultiTenant.Helpers
         public static bool HasAccess(Tenant currentTenant, string accessType)
         { 
             IAccessService accessService = DependencyResolver.Current.GetService<IAccessService>();
-            Access access = accessService.GetAccess(currentTenant.Id, accessType);
-            if (access == null || !access.HasAccess)
+            if (currentTenant == null)
             {
                 return false;
             }
-            return true;
+            return accessService.HasAccess(currentTenant.Id, accessType);
         }
 
         public static bool HasAccess(Tenant currentTenant, string[] accessTypes)
         {
             IAccessService accessService = DependencyResolver.Current.GetService<IAccessService>();
-            foreach (string accessType in accessTypes)
+            if (currentTenant == null)
             {
-                Access access = accessService.GetAccess(currentTenant.Id, accessType);
-                if (access == null || !access.HasAccess)
-                {
-                    return false;
-                }
+                return false;
             }
-            return true;
+            return accessService.HasAccess(currentTenant.Id, accessTypes);
         }
     }
 }

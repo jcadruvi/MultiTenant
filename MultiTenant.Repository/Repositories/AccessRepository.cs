@@ -51,5 +51,29 @@ namespace MultiTenant.Repository.Repositories
             }
             return access;
         }
+
+        public bool HasAccess(int tenantId, string type)
+        {
+            Access access = GetAccess(tenantId, type);
+            if (access == null || !access.HasAccess)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool HasAccess(int tenantId, string[] types)
+        {
+            Access access;
+            foreach (string type in types)
+            {
+                access = GetAccess(tenantId, type);
+                if (access == null || !access.HasAccess)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

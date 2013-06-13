@@ -10,9 +10,12 @@
     this.$traitPanel = $('#traitPanel');
     this.$traitViewPanel = $('#traitViewPanel');
 
-    this.programFeature = settings.programFeature;
     this.traitAddGridData = null;
     this.traitViewGridData = null;
+    
+    if (settings) {
+        this.programFeature = settings.programFeature;
+    }
 }
 
 StoreViewModel.prototype.doCollapseProgram = function () {

@@ -23,5 +23,14 @@ namespace MultiTenant.Service.Services
         {
             return _accessRepository.GetAccess(tenantId, type);
         }
+
+        public bool HasAccess(int tenantId, string type)
+        {
+            return _accessRepository.HasAccess(tenantId, type);
+        }
+        public bool HasAccess(int tenantId, string[] types)
+        {
+            return _accessRepository.HasAccess(tenantId, types);
+        }
     }
 }
