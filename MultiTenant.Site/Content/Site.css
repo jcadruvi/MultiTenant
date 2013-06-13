@@ -132,6 +132,25 @@ textarea {
     margin: 0 0 10px 0;
 }
 
+#traitAddButton {
+    float: left;
+    margin: 200px 0 0 10px;
+    width: 40px;
+}
+
+#traitAddPanel {
+    height: 400px;
+    margin: 10px 0 0 250px;
+    width: 200px;
+}
+
+#traitViewPanel {
+    height: 400px;
+    float: left;
+    margin: 10px 0 0 0;
+    width: 200px;
+}
+
 .userImage {
     height: 150px;
     width: 200px;

@@ -38,7 +38,23 @@
     </div>
 </div>
 
-<div id="traitViewGrid"></div>
+<div class="panel" id="traitViewPanel">
+    <div class="panelHeader">
+        <strong>View Traits</strong>
+    </div>
+    <div id="traitViewGrid"></div>
+</div>
+
+<div id="traitAddButton">
+    <input type="button" value="+"/>
+</div>
+
+<div class="panel" id="traitAddPanel">
+    <div class="panelHeader">
+        <strong>Add Traits</strong>
+    </div>
+    <div id="traitAddGrid"></div>
+</div>
 
 <script src="@Url.Script("StoreViewModel.js")"></script>
 
@@ -117,7 +133,7 @@
             },
             filterable: false,
             groupable: false,
-            height: "300px",
+            height: "90%",
             pageable: true,
             resizeable: true,
             selectable: "single, row",
@@ -131,7 +147,7 @@
                 transport: {
                     read: function (options) {
                         $.ajax({
-                            url: "@Url.Action("GetStores", "api/StoreApi", new { Area = ""})",
+                            url: "@Url.Action("GetViewTraits", "api/TraitApi", new { Area = ""})",
                             success: function (result) {
                                 options.success(result);
                             },
@@ -155,6 +171,52 @@
                     width: "180px"
                 }]
         });
+        storeViewModel.$traitViewGridData = $("#traitViewGrid").data('kendoGrid');
+        $("#traitAddGrid").kendoGrid({
+            autoBind: true,
+            change: function () {
+            },
+            height: "90%",
+            filterable: false,
+            groupable: false,
+            pageable: true,
+            resizeable: true,
+            selectable: "single, row",
+            sortable: {
+                mode: "single",
+                allowUnsort: false
+            },
+            dataSource: {
+                pageSize: 30,
+                type: "json",
+                transport: {
+                    read: function (options) {
+                        $.ajax({
+                            url: "@Url.Action("GetAddTraits", "api/TraitApi", new { Area = ""})",
+                            success: function (result) {
+                                options.success(result);
+                            },
+                            type: "GET"
+                        });
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Name: { type: "string" },
+                        }
+                    }
+                }
+            },
+            columns: [
+                {
+                    field: "Name",
+                    title: "Name",
+                    width: "180px"
+                }]
+        });
+        storeViewModel.$traitAddGridData = $("#traitAddGrid").data('kendoGrid');
         ko.applyBindings(storeViewModel);
     })();
 </script>
