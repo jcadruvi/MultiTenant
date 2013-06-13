@@ -1,4 +1,6 @@
 ﻿function StoreViewModel() {
+    this.$programButton = $('#programButton');
+    this.$programDetail = $('#programDetail');
     this.$storeButton = $('#storeButton');
     this.$storeDetail = $('#storeDetail');
     this.$traitAddButton = $('#traitAddButton');
@@ -12,6 +14,11 @@
     this.traitViewGridData = null;
 }
 
+StoreViewModel.prototype.doCollapseProgram = function () {
+    this.$programDetail.hide();
+    this.$programButton.val('+');
+};
+
 StoreViewModel.prototype.doCollapseStore = function () {
     this.$storeDetail.hide();
     this.$storeButton.val('+');
@@ -22,6 +29,11 @@ StoreViewModel.prototype.doCollapseTrait = function() {
     this.$traitButton.val('+');
     this.$traitPanel.removeClass('traitPanelExpanded');
     this.$traitPanel.addClass('traitPanelCollapsed');
+};
+
+StoreViewModel.prototype.doExpandProgram = function () {
+    this.$programDetail.show();
+    this.$programButton.val('-');
 };
 
 StoreViewModel.prototype.doExpandStore = function() {
@@ -44,6 +56,14 @@ StoreViewModel.prototype.onCollapseAllClick = function() {
 StoreViewModel.prototype.onExpandAllClick = function() {
     this.doExpandStore();
     this.doExpandTrait();
+};
+
+StoreViewModel.prototype.onProgramClick = function () {
+    if (this.$programButton.val() === '+') {
+        this.doExpandProgram();
+    } else {
+        this.doCollapseProgram();
+    }
 };
 
 StoreViewModel.prototype.onStoreClick = function() {

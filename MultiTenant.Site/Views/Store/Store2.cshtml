@@ -1,4 +1,5 @@
-﻿@using MultiTenant.Helpers
+﻿@using MultiTenant.Common.Types
+@using MultiTenant.Helpers
 @model MultiTenant.Models.StoreViewModel
 @{
     ViewBag.Title = "Index";
@@ -42,6 +43,19 @@
         </div>
     </div>
 </div>
+
+@if (Html.Access(Model.CurrentTenant, AccessTypes.ProgramFeature))
+{
+    <div class="panel storePanel">
+        <div class="panelHeader">
+            <input class="k-button" data-bind="click: onProgramClick" id="programButton" type="button" value="-" />
+            <strong>Programs</strong>
+        </div>
+        <div id="programDetail">
+            
+        </div>
+    </div>
+}
 
 <div class="panel traitPanelExpanded" id="traitPanel">
     <div class="panelHeader">

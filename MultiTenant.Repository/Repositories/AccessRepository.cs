@@ -21,6 +21,12 @@ namespace MultiTenant.Repository.Repositories
             _accessList.Add(new Access
             {
                 TenantId = TenantIds.AppleId,
+                Type = AccessTypes.ProgramFeature,
+                HasAccess = true
+            });
+            _accessList.Add(new Access
+            {
+                TenantId = TenantIds.AppleId,
                 Type = AccessTypes.Ultimate,
                 HasAccess = true
             });

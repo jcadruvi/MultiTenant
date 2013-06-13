@@ -8,6 +8,7 @@ namespace MultiTenant.Common.Types
 {
     public static class AccessTypes
     {
+        public static readonly string ProgramFeature = "ProgramFeature";
         public static readonly string Premium = "Premium";
         public static readonly string Ultimate = "Ultimate";
     }
