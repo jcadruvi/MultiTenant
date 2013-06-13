@@ -1,4 +1,8 @@
-﻿.storeLabel {
+﻿#storeButtonPanel {
+    margin: 10px 0 0 0;
+}
+
+.storeLabel {
     display: inline-block;
     margin-left: 10px;
     width: 100px;
@@ -6,7 +10,7 @@
 
 .storePanel {
     margin-top: 10px;
-    width: 450px;
+    width: 475px;
 }
 
 #traitAddButton {
@@ -17,13 +21,24 @@
 
 #traitAddPanel {
     height: 400px;
-    margin: 10px 0 0 250px;
+    margin: 10px 0 0 260px;
     width: 200px;
+}
+
+.traitPanelExpanded {
+    padding: 0 0 10px 0;
+    margin: 10px 0 0 0;
+    width: 475px;
+}
+
+.traitPanelCollapsed {
+    margin: 10px 0 0 0;
+    width: 475px;
 }
 
 #traitViewPanel {
     height: 400px;
     float: left;
-    margin: 10px 0 0 0;
+    margin: 0 0 0 10px;
     width: 200px;
 }

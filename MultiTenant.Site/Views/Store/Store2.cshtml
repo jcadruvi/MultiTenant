@@ -10,7 +10,10 @@
 <h2>This is the CORE store2.</h2>
 
 <div id="storeGrid"></div>
-
+<div id="storeButtonPanel">
+    <input class="k-button" data-bind="click: onExpandAllClick" id="expandAllButton" type="button" value="++" />
+    <input class="k-button" data-bind="click: onCollapseAllClick" id="collapseAllButton" type="button" value="--" />
+</div>
 <div class="panel storePanel">
     <div class="panelHeader">
         <input class="k-button" data-bind="click: onStoreClick" id="storeButton" type="button" value="-" />
@@ -40,22 +43,30 @@
     </div>
 </div>
 
-<div class="panel" id="traitViewPanel">
+<div class="panel traitPanelExpanded" id="traitPanel">
     <div class="panelHeader">
-        <strong>View Traits</strong>
+        <input class="k-button" data-bind="click: onTraitClick" id="traitButton" type="button" value="-" />
+        <strong>Traits</strong>
     </div>
-    <div id="traitViewGrid"></div>
-</div>
+    <div id="traitDetail">
+        <div class="panel" id="traitViewPanel">
+            <div class="panelHeader">
+                <strong>View Traits</strong>
+            </div>
+            <div id="traitViewGrid"></div>
+        </div>
 
-<div id="traitAddButton">
-    <input type="button" value="+"/>
-</div>
+        <div id="traitAddButton">
+            <input type="button" value="+" />
+        </div>
 
-<div class="panel" id="traitAddPanel">
-    <div class="panelHeader">
-        <strong>Add Traits</strong>
+        <div class="panel" id="traitAddPanel">
+            <div class="panelHeader">
+                <strong>Add Traits</strong>
+            </div>
+            <div id="traitAddGrid"></div>
+        </div>
     </div>
-    <div id="traitAddGrid"></div>
 </div>
 
 <script src="@Url.Script("StoreViewModel.js")"></script>
@@ -173,7 +184,7 @@
                     width: "180px"
                 }]
         });
-        storeViewModel.$traitViewGridData = $("#traitViewGrid").data('kendoGrid');
+        storeViewModel.traitViewGridData = $("#traitViewGrid").data('kendoGrid');
         $("#traitAddGrid").kendoGrid({
             autoBind: true,
             change: function () {
@@ -218,7 +229,7 @@
                     width: "180px"
                 }]
         });
-        storeViewModel.$traitAddGridData = $("#traitAddGrid").data('kendoGrid');
+        storeViewModel.traitAddGridData = $("#traitAddGrid").data('kendoGrid');
         ko.applyBindings(storeViewModel);
     })();
 </script>
