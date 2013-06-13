@@ -162,6 +162,7 @@
     <Compile Include="Controllers\RetailerController.cs" />
     <Compile Include="Controllers\StoreApiController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\SurveyApiController.cs" />
     <Compile Include="Controllers\TenantApiController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\TraitApiController.cs" />

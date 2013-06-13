@@ -44,6 +44,7 @@
     <Compile Include="Interfaces\IPathRepository.cs" />
     <Compile Include="Interfaces\IProgramRepository.cs" />
     <Compile Include="Interfaces\IRetailerRepository.cs" />
+    <Compile Include="Interfaces\ISurveyRepository.cs" />
     <Compile Include="Interfaces\ITenantRepository.cs" />
     <Compile Include="Interfaces\ITraitRepository.cs" />
     <Compile Include="Interfaces\IStoreRepository.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Repositories\ProgramRepository.cs" />
     <Compile Include="Repositories\RetailerRepository.cs" />
     <Compile Include="Repositories\StoreRepository.cs" />
+    <Compile Include="Repositories\SurveyRepository.cs" />
     <Compile Include="Repositories\TenantRepository.cs" />
     <Compile Include="Repositories\TraitRepository.cs" />
   </ItemGroup>

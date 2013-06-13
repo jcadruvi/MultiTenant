@@ -10,9 +10,9 @@ namespace MultiTenant.Repository.Repositories
 {
     public class ProgramRepository : IProgramRepository
     {
-        private static ProgramRepository _instance;
+        private static ProgramRepository _instance = new ProgramRepository();
         public static ProgramRepository Instance { get { return _instance; } }
-        private ICollection<KeyValuePair<int, string>> _programItems; 
+        private readonly ICollection<KeyValuePair<int, string>> _programItems; 
         static ProgramRepository() { }
         private ProgramRepository()
         {
