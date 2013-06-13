@@ -10,10 +10,17 @@
     this.$traitPanel = $('#traitPanel');
     this.$traitViewPanel = $('#traitViewPanel');
 
+    this.city = null;
+    this.id = null;
+    this.name = null;
+    this.number = null;
+    this.state = null;
+    this.storeGridData = null;
     this.traitAddGridData = null;
     this.traitViewGridData = null;
     
     if (settings) {
+        this.getStoreUrl = settings.getStoreUrl;
         this.programFeature = settings.programFeature;
     }
 }
@@ -84,6 +91,31 @@ StoreViewModel.prototype.onStoreClick = function() {
     }
 };
 
+StoreViewModel.prototype.onStoreGridChanged = function() {
+    var dataItem, postData = {}, self = this;
+    if (!this.storeGridData) {
+        return;
+    }
+    dataItem = this.storeGridData.dataItem(this.storeGridData.select());
+    if (!dataItem) {
+        return;
+    }
+    postData.ID = dataItem.Id;
+    $.ajax({
+        data: postData,
+        dataType: 'json',
+        success: function(result) {
+            self.city(result.City);
+            self.id(result.Id);
+            self.name(result.Name);
+            self.number(result.Number);
+            self.state(result.State);
+        },
+        type: 'GET',
+        url: this.getStoreUrl
+    });
+};
+
 StoreViewModel.prototype.onTraitClick = function() {
     if (this.$traitButton.val() == '+') {
         this.doExpandTrait();
@@ -92,5 +124,10 @@ StoreViewModel.prototype.onTraitClick = function() {
     }
 };
 
-StoreViewModel.prototype.setObservables = function() {
+StoreViewModel.prototype.setObservables = function () {
+    this.city = ko.observable();
+    this.id = ko.observable();
+    this.name = ko.observable();
+    this.number = ko.observable();
+    this.state = ko.observable();
 };

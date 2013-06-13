@@ -9,6 +9,7 @@ namespace MultiTenant.Service.Interfaces
 {
     public interface IStoreService
     {
+        Store Get(int id);
         IEnumerable<Store> GetStores();
     }
 }

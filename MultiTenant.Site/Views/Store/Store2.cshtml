@@ -21,25 +21,25 @@
         <strong>Store</strong>
     </div>
     <div id="storeDetail">
-        <div>
+        <div class="storeLine">
             <span class="storeLabel">Id:</span>
-            <span>@Html.TextBoxFor(model => model.Id)</span>
+            <span>@Html.TextBoxFor(model => model.Id, new { @class="k-textbox", data_bind="value: id"})</span>
         </div>
-        <div>
+        <div class="storeLine">
             <span class="storeLabel">Name:</span>
-            <span>@Html.TextBoxFor(model => model.Name)</span>
+            <span>@Html.TextBoxFor(model => model.Name, new { @class="k-textbox", data_bind="value: name"})</span>
         </div>
-        <div>
+        <div class="storeLine"> 
             <span class="storeLabel">Number:</span>
-            <span>@Html.TextBoxFor(model => model.Number)</span>
+            <span>@Html.TextBoxFor(model => model.Number, new { @class="k-textbox", data_bind="value: number"})</span>
         </div>
-        <div>
+        <div class="storeLine">
             <span class="storeLabel">City:</span>
-            <span>@Html.TextBoxFor(model => model.City)</span>
+            <span>@Html.TextBoxFor(model => model.City, new { @class="k-textbox", data_bind="value: city"})</span>
         </div>
-        <div>
-            <span class="storeLabel">Number:</span>
-            <span>@Html.TextBoxFor(model => model.State)</span>
+        <div class="storeLine">
+            <span class="storeLabel">State:</span>
+            <span>@Html.TextBoxFor(model => model.State, new { @class="k-textbox", data_bind="value: state"})</span>
         </div>
     </div>
 </div>
@@ -102,11 +102,14 @@
     (function() {
         var programFeature = @Html.Raw(Json.Encode(AccessHelper.HasAccess(Model.CurrentTenant, AccessTypes.ProgramFeature)));
         var storeViewModel = new StoreViewModel({
+            getStoreUrl: "@Url.Action("Get", "api/StoreApi", new { Area = "" })",
             programFeature: programFeature
         });
+        storeViewModel.setObservables();
         $("#storeGrid").kendoGrid({
             autoBind: true,
             change: function() {
+                storeViewModel.onStoreGridChanged();
             },
             filterable: false,
             groupable: false,
@@ -170,6 +173,7 @@
                     width: "80px"
                 }]
         });
+        storeViewModel.storeGridData = $('#storeGrid').data('kendoGrid');
         if (programFeature) {
             $('.programDropDown').kendoComboBox({
                 dataTextField: "Value",

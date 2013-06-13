@@ -16,6 +16,10 @@ namespace MultiTenant.Controllers
         {
             _storeService = storeService;
         }
+        public Store Get(int id)
+        {
+            return _storeService.Get(id);
+        }
         public IEnumerable<Store> GetStores()
         {
             return _storeService.GetStores();

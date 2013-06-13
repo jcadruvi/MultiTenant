@@ -69,6 +69,13 @@ namespace MultiTenant.Repository.Repositories
         }
         public static StoreRepository Instance { get { return _instance; } }
 
+        public Store Get(int id)
+        {
+            return (from s in _stores
+                    where s.Id == id
+                    select s).FirstOrDefault();
+        }
+
         public IEnumerable<Store> GetStores()
         {
             return _stores;

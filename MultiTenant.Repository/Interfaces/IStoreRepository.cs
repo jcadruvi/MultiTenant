@@ -9,6 +9,7 @@ namespace MultiTenant.Repository.Interfaces
 {
     public interface IStoreRepository
     {
+        Store Get(int id);
         IEnumerable<Store> GetStores();
     }
 }

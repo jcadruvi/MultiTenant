@@ -10,14 +10,22 @@
     margin: 10px 0 0 0;
 }
 
+#storeDetail {
+    padding: 10px 0 0 0;
+}
+
 .storeLabel {
     display: inline-block;
     margin-left: 10px;
     width: 100px;
 }
 
+.storeLine {
+    margin: 0 0 10px 0;
+}
+
 .storePanel {
-    margin-top: 10px;
+    margin: 10px 0 0 0;
     width: 490px;
 }
 
