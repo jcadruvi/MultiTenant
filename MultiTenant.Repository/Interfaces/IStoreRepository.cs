@@ -9,7 +9,9 @@ namespace MultiTenant.Repository.Interfaces
 {
     public interface IStoreRepository
     {
+        void DeleteStore(int id);
         Store Get(int id);
         IEnumerable<Store> GetStores();
+        void UpdateStore(Store store);
     }
 }

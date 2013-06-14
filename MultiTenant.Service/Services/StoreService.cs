@@ -18,6 +18,10 @@ namespace MultiTenant.Service.Services
         {
             _storeRepository = StoreRepository.Instance;
         }
+        public void DeleteStore(int id)
+        {
+            _storeRepository.DeleteStore(id);
+        }
         public Store Get(int id)
         {
             return _storeRepository.Get(id);
@@ -25,6 +29,10 @@ namespace MultiTenant.Service.Services
         public IEnumerable<Store> GetStores()
         {
             return _storeRepository.GetStores();
+        }
+        public void UpdateStore(Store store)
+        {
+            _storeRepository.UpdateStore(store);
         }
     }
 }

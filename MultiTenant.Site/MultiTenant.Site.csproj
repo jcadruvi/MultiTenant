@@ -317,7 +317,7 @@
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Shared\Error404.cshtml" />
     <Content Include="Views\Report\Index.cshtml" />
-    <Content Include="Views\Store\Store2.cshtml" />
+    <Content Include="Views\Store\StoreProgram.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MultiTenant.Common\MultiTenant.Common.csproj">

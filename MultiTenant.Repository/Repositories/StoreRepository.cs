@@ -12,11 +12,11 @@ namespace MultiTenant.Repository.Repositories
     public class StoreRepository : IStoreRepository
     {
         private static readonly StoreRepository _instance = new StoreRepository();
-        private static ICollection<Store> _stores;
+        private static IList<Store> _stores;
         static StoreRepository() {}
         private StoreRepository()
         {
-            _stores = new Collection<Store>();
+            _stores = new List<Store>();
 
             _stores.Add(new Store
             {
@@ -69,16 +69,34 @@ namespace MultiTenant.Repository.Repositories
         }
         public static StoreRepository Instance { get { return _instance; } }
 
+        public void DeleteStore(int id)
+        {
+            _stores.Remove(_stores.First(s => s.Id == id));
+        }
+
         public Store Get(int id)
         {
             return (from s in _stores
                     where s.Id == id
-                    select s).FirstOrDefault();
+                    select s).First();
         }
 
         public IEnumerable<Store> GetStores()
         {
             return _stores;
         } 
+
+        public void UpdateStore(Store store)
+        {
+            var updateStore = _stores.First(s => s.Id == store.Id);
+            if (updateStore != null)
+            {
+                updateStore.City = store.City;
+                updateStore.Id = store.Id;
+                updateStore.Name = store.Name;
+                updateStore.Number = store.Number;
+                updateStore.State = store.State;
+            }
+        }
     }
 }

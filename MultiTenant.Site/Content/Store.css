@@ -1,4 +1,8 @@
-﻿.programLabel {
+﻿#deleteButton {
+    margin: 0 0 0 300px;
+}
+
+.programLabel {
     margin: 0 10px 0 5px;
 }
 

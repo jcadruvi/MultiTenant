@@ -24,11 +24,11 @@ namespace MultiTenant.Controllers
             model.CurrentTenant = CurrentTenant;
             return View("Index", model);
         }
-        public ActionResult Store2()
+        public ActionResult StoreProgram()
         {
             StoreViewModel model = new StoreViewModel();
             model.CurrentTenant = CurrentTenant;
-            return View("Store2", model);
+            return View("StoreProgram", model);
         }
     }
 }

@@ -14,6 +14,7 @@
 <div id="storeButtonPanel">
     <input class="k-button" data-bind="click: onExpandAllClick" id="expandAllButton" type="button" value="++" />
     <input class="k-button" data-bind="click: onCollapseAllClick" id="collapseAllButton" type="button" value="--" />
+    <input class="k-button" data-bind="click: onDeleteClick" id="deleteButton" type="button" value="Delete" />
 </div>
 <div class="panel storePanel">
     <div class="panelHeader">
@@ -102,6 +103,7 @@
     (function() {
         var programFeature = @Html.Raw(Json.Encode(AccessHelper.HasAccess(Model.CurrentTenant, AccessTypes.ProgramFeature)));
         var storeViewModel = new StoreViewModel({
+            deleteStoreUrl: "@Url.Action("Delete", "api/StoreApi", new { Area = "" })",
             getStoreUrl: "@Url.Action("Get", "api/StoreApi", new { Area = "" })",
             programFeature: programFeature
         });

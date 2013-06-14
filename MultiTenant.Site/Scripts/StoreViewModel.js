@@ -20,6 +20,7 @@
     this.traitViewGridData = null;
     
     if (settings) {
+        this.deleteStoreUrl = settings.deleteStoreUrl;
         this.getStoreUrl = settings.getStoreUrl;
         this.programFeature = settings.programFeature;
     }
@@ -58,6 +59,18 @@ StoreViewModel.prototype.doExpandTrait = function() {
     this.$traitPanel.addClass('traitPanelExpanded');
     this.$traitPanel.removeClass('traitPanelCollapsed');
 };
+
+StoreViewModel.prototype.getSelectedStoreId = function() {
+    var dataItem;
+    if (!this.storeGridData) {
+        return null;
+    }
+    dataItem = this.storeGridData.dataItem(this.storeGridData.select());
+    if (!dataItem) {
+        return null;
+    }
+    return dataItem.Id;
+};
  
 StoreViewModel.prototype.onCollapseAllClick = function() {
     this.doCollapseStore();
@@ -65,6 +78,23 @@ StoreViewModel.prototype.onCollapseAllClick = function() {
     if (this.programFeature) {
         this.doCollapseProgram();
     }
+};
+
+StoreViewModel.prototype.onDeleteClick = function() {
+    var id = this.getSelectedStoreId(), self = this;
+    $.ajax({
+        success: function() {
+            self.storeGridData.dataSource.read();
+            self.city(null);
+            self.id(null);
+            self.name(null);
+            self.number(null);
+            self.state(null);
+            self.traitViewGridData.dataSource.data([]);
+        },
+        type: 'DELETE',
+        url: this.deleteStoreUrl + '?id=' + id
+    });
 };
 
 StoreViewModel.prototype.onExpandAllClick = function() {
@@ -92,15 +122,9 @@ StoreViewModel.prototype.onStoreClick = function() {
 };
 
 StoreViewModel.prototype.onStoreGridChanged = function() {
-    var dataItem, postData = {}, self = this;
-    if (!this.storeGridData) {
-        return;
-    }
-    dataItem = this.storeGridData.dataItem(this.storeGridData.select());
-    if (!dataItem) {
-        return;
-    }
-    postData.ID = dataItem.Id;
+    var postData = {}, self = this;
+    
+    postData.ID = this.getSelectedStoreId();
     $.ajax({
         data: postData,
         dataType: 'json',

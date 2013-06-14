@@ -16,6 +16,11 @@ namespace MultiTenant.Controllers
         {
             _storeService = storeService;
         }
+        [HttpDelete]
+        public void Delete(int id)
+        {
+            _storeService.DeleteStore(id);
+        } 
         public Store Get(int id)
         {
             return _storeService.Get(id);
