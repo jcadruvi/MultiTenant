@@ -10,40 +10,44 @@
 
 <h2>This is the CORE store2.</h2>
 
-<div id="storeGrid"></div>
-<div id="storeButtonPanel">
-    <input class="k-button" data-bind="click: onExpandAllClick" id="expandAllButton" type="button" value="++" />
-    <input class="k-button" data-bind="click: onCollapseAllClick" id="collapseAllButton" type="button" value="--" />
-    <input class="k-button" data-bind="click: onDeleteClick" id="deleteButton" type="button" value="Delete" />
-</div>
-<div class="panel storePanel">
-    <div class="panelHeader">
-        <input class="k-button" data-bind="click: onStoreClick" id="storeButton" type="button" value="-" />
-        <strong>Store</strong>
+@using (Html.BeginForm("StoreApi/Post", "api", FormMethod.Post, new {id = "storesForm"}))
+{
+    <div id="storeGrid"></div>
+    <div id="storeButtonPanel">
+        <input class="k-button" data-bind="click: onExpandAllClick" id="expandAllButton" type="button" value="++" />
+        <input class="k-button" data-bind="click: onCollapseAllClick" id="collapseAllButton" type="button" value="--" />
+        <input class="k-button" type="submit" id="saveButton" value="Save"/>
+        <input class="k-button" data-bind="click: onDeleteClick" id="deleteButton" type="button" value="Delete" />
     </div>
-    <div id="storeDetail">
-        <div class="storeLine">
-            <span class="storeLabel">Id:</span>
-            <span>@Html.TextBoxFor(model => model.Id, new { @class="k-textbox", data_bind="value: id"})</span>
+    <div class="panel storePanel">
+        <div class="panelHeader">
+            <input class="k-button" data-bind="click: onStoreClick" id="storeButton" type="button" value="-" />
+            <strong>Store</strong>
         </div>
-        <div class="storeLine">
-            <span class="storeLabel">Name:</span>
-            <span>@Html.TextBoxFor(model => model.Name, new { @class="k-textbox", data_bind="value: name"})</span>
-        </div>
-        <div class="storeLine"> 
-            <span class="storeLabel">Number:</span>
-            <span>@Html.TextBoxFor(model => model.Number, new { @class="k-textbox", data_bind="value: number"})</span>
-        </div>
-        <div class="storeLine">
-            <span class="storeLabel">City:</span>
-            <span>@Html.TextBoxFor(model => model.City, new { @class="k-textbox", data_bind="value: city"})</span>
-        </div>
-        <div class="storeLine">
-            <span class="storeLabel">State:</span>
-            <span>@Html.TextBoxFor(model => model.State, new { @class="k-textbox", data_bind="value: state"})</span>
+        <div id="storeDetail">
+            <div class="storeLine">
+                <span class="storeLabel">Id:</span>
+                <span>@Html.TextBoxFor(model => model.Id, new {@class = "k-textbox", data_bind = "value: id"})</span>
+            </div>
+            <div class="storeLine">
+                <span class="storeLabel">Name:</span>
+                <span>@Html.TextBoxFor(model => model.Name, new {@class = "k-textbox", data_bind = "value: name"})</span>
+            </div>
+            <div class="storeLine"> 
+                <span class="storeLabel">Number:</span>
+                <span>@Html.TextBoxFor(model => model.Number, new {@class = "k-textbox", data_bind = "value: number"})</span>
+            </div>
+            <div class="storeLine">
+                <span class="storeLabel">City:</span>
+                <span>@Html.TextBoxFor(model => model.City, new {@class = "k-textbox", data_bind = "value: city"})</span>
+            </div>
+            <div class="storeLine">
+                <span class="storeLabel">State:</span>
+                <span>@Html.TextBoxFor(model => model.State, new {@class = "k-textbox", data_bind = "value: state"})</span>
+            </div>
         </div>
     </div>
-</div>
+}
 
 @if (AccessHelper.HasAccess(Model.CurrentTenant, AccessTypes.ProgramFeature))
 {
@@ -108,6 +112,15 @@
             programFeature: programFeature
         });
         storeViewModel.setObservables();
+        $('#storesForm').ajaxForm({
+            dataType: 'json',
+            iframe: false,
+            success: function() {
+                storeViewModel.onStoreSuccess();
+            },
+            type: 'POST'
+
+        });
         $("#storeGrid").kendoGrid({
             autoBind: true,
             change: function() {

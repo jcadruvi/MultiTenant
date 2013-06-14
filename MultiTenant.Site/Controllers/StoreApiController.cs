@@ -29,5 +29,10 @@ namespace MultiTenant.Controllers
         {
             return _storeService.GetStores();
         }
+        [HttpPost]
+        public void Post(Store store)
+        {
+            _storeService.UpdateStore(store);
+        }
     }
 }

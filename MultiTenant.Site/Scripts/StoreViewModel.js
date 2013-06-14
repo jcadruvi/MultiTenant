@@ -121,6 +121,10 @@ StoreViewModel.prototype.onStoreClick = function() {
     }
 };
 
+StoreViewModel.prototype.onStoreSuccess = function() {
+    this.storeGridData.dataSource.read();
+};
+
 StoreViewModel.prototype.onStoreGridChanged = function() {
     var postData = {}, self = this;
     

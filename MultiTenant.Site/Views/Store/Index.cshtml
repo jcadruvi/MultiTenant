@@ -11,34 +11,37 @@
 
 <div id="storeGrid"></div>
 
-<div class="panel storePanel">
-    <div class="panelHeader">
-        <input class="k-button" data-bind="click: onStoreClick" id="storeButton" type="button" value="-" />
-        <strong>Store</strong>
+@using (Html.BeginForm("StoreApi/Post", "api", FormMethod.Post, new {id = "storesForm"}))
+{
+    <div class="panel storePanel">
+        <div class="panelHeader">
+            <input class="k-button" data-bind="click: onStoreClick" id="storeButton" type="button" value="-" />
+            <strong>Store</strong>
+        </div>
+        <div id="storeDetail">
+            <div>
+                <span class="storeLabel">Id:</span>
+                <span>@Html.TextBoxFor(model => model.Id)</span>
+            </div>
+            <div>
+                <span class="storeLabel">Name:</span>
+                <span>@Html.TextBoxFor(model => model.Name)</span>
+            </div>
+            <div>
+                <span class="storeLabel">Number:</span>
+                <span>@Html.TextBoxFor(model => model.Number)</span>
+            </div>
+            <div>
+                <span class="storeLabel">City:</span>
+                <span>@Html.TextBoxFor(model => model.City)</span>
+            </div>
+            <div>
+                <span class="storeLabel">Number:</span>
+                <span>@Html.TextBoxFor(model => model.State)</span>
+            </div>
+        </div>
     </div>
-    <div id="storeDetail">
-        <div>
-            <span class="storeLabel">Id:</span>
-            <span>@Html.TextBoxFor(model => model.Id)</span>
-        </div>
-        <div>
-            <span class="storeLabel">Name:</span>
-            <span>@Html.TextBoxFor(model => model.Name)</span>
-        </div>
-        <div>
-            <span class="storeLabel">Number:</span>
-            <span>@Html.TextBoxFor(model => model.Number)</span>
-        </div>
-        <div>
-            <span class="storeLabel">City:</span>
-            <span>@Html.TextBoxFor(model => model.City)</span>
-        </div>
-        <div>
-            <span class="storeLabel">Number:</span>
-            <span>@Html.TextBoxFor(model => model.State)</span>
-        </div>
-    </div>
-</div>
+}
 
 <div class="panel" id="traitViewPanel">
     <div class="panelHeader">
@@ -63,6 +66,15 @@
 <script type="text/javascript">
     (function () {
         var storeViewModel = new StoreViewModel();
+        $('#storesForm').ajaxForm({
+            dataType: 'json',
+            iframe: false,
+            success: function() {
+                storeViewModel.onStoreSuccess();
+            },
+            type: 'POST'
+
+        });
         $("#storeGrid").kendoGrid({
             autoBind: true,
             change: function() {
