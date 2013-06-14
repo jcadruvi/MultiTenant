@@ -1,4 +1,4 @@
-﻿function StoreViewModel(settings) {
+﻿function StoreViewModelFunc(settings) {
     var self = this;
     
     self.$programButton = $('#programButton');
