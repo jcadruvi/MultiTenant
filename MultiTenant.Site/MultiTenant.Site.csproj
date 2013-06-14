@@ -256,6 +256,7 @@
     <Content Include="Goa\Custom\2\Images\imageCustom.jpg" />
     <Content Include="Goa\Custom\3\Images\imageCustom.jpg" />
     <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
