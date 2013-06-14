@@ -1,5 +1,5 @@
 ﻿#deleteButton {
-    margin: 0 0 0 300px;
+    margin: 0 0 0 10px;
 }
 
 .programLabel {
@@ -8,6 +8,10 @@
 
 .programLine {
     margin: 10px 0 10px 0;
+}
+
+#saveButton {
+    margin: 0 0 0 300px;
 }
 
 #storeButtonPanel {
