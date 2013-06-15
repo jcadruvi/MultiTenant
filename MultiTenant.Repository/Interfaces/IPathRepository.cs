@@ -8,6 +8,7 @@ namespace MultiTenant.Repository.Interfaces
 {
     public interface IPathRepository
     {
+        string GetContentLocation(int tenantId, string type);
         string GetRedirectPath(int tenantId, string originalPath);
     }
 }

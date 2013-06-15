@@ -13,28 +13,48 @@ namespace MultiTenant.Repository.Repositories
     public class PathRepository : IPathRepository
     {
         private static PathRepository _instance = new PathRepository();
-        private ICollection<RequestPath> _paths; 
+        private ICollection<ContentPath> _contentPaths; 
+        private ICollection<RequestPath> _requestPaths; 
         static PathRepository() {}
         private PathRepository()
         {
-            _paths = new Collection<RequestPath>();
+            _contentPaths = new Collection<ContentPath>();
+            _requestPaths = new Collection<RequestPath>();
 
-            #region Initialize Paths
+            #region
 
-            _paths.Add(new RequestPath
+            _contentPaths.Add(new ContentPath
+            {
+                TenantId = TenantIds.AppleId,
+                Type = ContentTypes.RetailerPartial,
+                Location = "Partial1"
+            });
+
+            _contentPaths.Add(new ContentPath
+            {
+                TenantId = TenantIds.MicrosoftId,
+                Type = ContentTypes.RetailerPartial,
+                Location = "Partial2"
+            });
+
+            #endregion
+
+            #region Initialize Request Paths
+
+            _requestPaths.Add(new RequestPath
             {
                 TenantId = TenantIds.AppleId,
                 OriginalPath = "/admin/user/userview",
                 NewPath = "/apple/user/userview"
             });
-            _paths.Add(new RequestPath
+            _requestPaths.Add(new RequestPath
             {
                 TenantId = TenantIds.AppleId,
                 OriginalPath = "/report/report",
                 NewPath = "/apple/report/report"
             });
 
-            _paths.Add(new RequestPath
+            _requestPaths.Add(new RequestPath
             {
                 TenantId = TenantIds.MicrosoftId,
                 OriginalPath = "/report/report",
@@ -45,11 +65,19 @@ namespace MultiTenant.Repository.Repositories
         }
         public static PathRepository Instance { get { return _instance; } }
 
+        public string GetContentLocation(int tenantId, string type)
+        {
+            var content = _contentPaths.FirstOrDefault(c => c.TenantId == tenantId && c.Type == type);
+            if (content != null)
+            {
+                return content.Location;
+            }
+            return null;
+        }
+
         public string GetRedirectPath(int tenantId, string originalPath)
         {
-            var path = (from p in _paths
-                        where p.TenantId == tenantId && p.OriginalPath.ToLower() == originalPath.ToLower()
-                        select p).FirstOrDefault();
+            var path = _requestPaths.FirstOrDefault(p => p.TenantId == tenantId && p.OriginalPath.ToLower() == originalPath.ToLower());
             if (path != null)
             {
                 return path.NewPath;

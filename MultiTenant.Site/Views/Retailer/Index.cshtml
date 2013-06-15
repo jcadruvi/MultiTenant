@@ -41,6 +41,8 @@
      </div>
  }
 
+@Html.PartialHelper(Model.CurrentTenant, @ContentTypes.RetailerPartial)
+
 <script type="text/javascript">
     $("#retailerGrid").kendoGrid({
         autoBind: true,

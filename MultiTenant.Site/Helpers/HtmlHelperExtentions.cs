@@ -14,12 +14,26 @@ namespace MultiTenant.Helpers
 {
     public static class HtmlHelperExtentions
     {
-        public static MvcHtmlString SiteMenu(this HtmlHelper helper, string host)
+        public static MvcHtmlString PartialHelper(this HtmlHelper helper, Tenant currentTenant, string type)
         {
-            ILinkService linkService = DependencyResolver.Current.GetService(typeof(ILinkService)) as ILinkService;
-            ITenantService tenantService = DependencyResolver.Current.GetService(typeof(ITenantService)) as ITenantService;
-            Tenant currentTenant = tenantService.GetCurrentTenant(host);
-            if (currentTenant == null)
+            IPathService pathService = DependencyResolver.Current.GetService<IPathService>();
+            string location; 
+            if (currentTenant == null || pathService == null)
+            {
+                return null;
+            }
+            location = pathService.GetContentLocation(currentTenant.Id, type);
+            if (location == null)
+            {
+                return null;
+            }
+            return helper.Partial(location);
+        }
+
+        public static MvcHtmlString SiteMenu(this HtmlHelper helper, Tenant currentTenant)
+        {
+            ILinkService linkService = DependencyResolver.Current.GetService<ILinkService>(); 
+            if (currentTenant == null || linkService == null)
             {
                 return null;
             }

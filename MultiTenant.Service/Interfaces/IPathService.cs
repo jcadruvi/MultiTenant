@@ -8,6 +8,7 @@ namespace MultiTenant.Service.Interfaces
 {
     public interface IPathService
     {
+        string GetContentLocation(int tenantId, string type);
         string GetRedirectPath(int tenantId, string originalPath);
     }
 }
