@@ -12,7 +12,7 @@ using MultiTenant.Model;
 
 namespace MultiTenant.Helpers
 {
-    public static class MenuHtmlHelper
+    public static class HtmlHelperExtentions
     {
         public static MvcHtmlString SiteMenu(this HtmlHelper helper, string host)
         {

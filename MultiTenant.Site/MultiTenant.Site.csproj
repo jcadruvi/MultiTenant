@@ -171,7 +171,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AccessHelper.cs" />
-    <Compile Include="Helpers\MenuHtmlHelper.cs" />
+    <Compile Include="Helpers\HtmlHelperExtentions.cs" />
     <Compile Include="Helpers\ContentHelper.cs" />
     <Compile Include="Models\BaseViewModel.cs" />
     <Compile Include="Models\RetailerViewModel.cs" />
@@ -320,6 +320,8 @@
     <Content Include="Views\Shared\Error404.cshtml" />
     <Content Include="Views\Report\Index.cshtml" />
     <Content Include="Views\Store\StoreProgram.cshtml" />
+    <Content Include="Views\Retailer\Partial1.cshtml" />
+    <Content Include="Views\Retailer\Partial2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MultiTenant.Common\MultiTenant.Common.csproj">
