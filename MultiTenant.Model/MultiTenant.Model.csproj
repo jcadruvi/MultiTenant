@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Access.cs" />
     <Compile Include="Link.cs" />
+    <Compile Include="PartialView.cs" />
     <Compile Include="RequestPath.cs" />
     <Compile Include="Retailer.cs" />
     <Compile Include="Store.cs" />
