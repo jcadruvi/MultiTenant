@@ -1,5 +1,5 @@
 ﻿function StoreViewModelFunc(settings) {
-    var self = this;
+    var self = {};
     
     self.$programButton = $('#programButton');
     self.$programDetail = $('#programDetail');
@@ -160,4 +160,6 @@
         self.number = ko.observable();
         self.state = ko.observable();
     };
+
+    return self;
 }

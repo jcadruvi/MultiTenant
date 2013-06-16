@@ -102,11 +102,12 @@
 </div>
 
 <script src="@Url.Script("StoreViewModel.js")"></script>
+<script src="@Url.Script("StoreViewModelFunc.js")"></script>
 
 <script type="text/javascript">
     (function() {
         var programFeature = @Html.Raw(Json.Encode(AccessHelper.HasAccess(Model.CurrentTenant, AccessTypes.ProgramFeature)));
-        var storeViewModel = new StoreViewModel({
+        var storeViewModel = StoreViewModelFunc({
             deleteStoreUrl: "@Url.Action("Delete", "api/StoreApi", new { Area = "" })",
             getStoreUrl: "@Url.Action("Get", "api/StoreApi", new { Area = "" })",
             programFeature: programFeature
