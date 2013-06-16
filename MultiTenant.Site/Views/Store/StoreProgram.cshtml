@@ -10,6 +10,7 @@
 
 <h2>This is the CORE store2.</h2>
 
+@{ Html.EnableClientValidation(); }
 @using (Html.BeginForm("StoreApi/Post", "api", FormMethod.Post, new {id = "storesForm"}))
 {
     <div id="storeGrid"></div>
@@ -29,14 +30,17 @@
                 <span class="storeLabel">Id:</span>
                 <span>@Html.TextBoxFor(model => model.Id, new {@class = "k-textbox", data_bind = "value: id"})</span>
             </div>
+            <div>@Html.ValidationMessageFor(model => model.Id)</div>
             <div class="storeLine">
                 <span class="storeLabel">Name:</span>
                 <span>@Html.TextBoxFor(model => model.Name, new {@class = "k-textbox", data_bind = "value: name"})</span>
             </div>
+            <div>@Html.ValidationMessageFor(model => model.Name)</div>
             <div class="storeLine"> 
                 <span class="storeLabel">Number:</span>
                 <span>@Html.TextBoxFor(model => model.Number, new {@class = "k-textbox", data_bind = "value: number"})</span>
             </div>
+            <div>@Html.ValidationMessageFor(model => model.Number)</div>
             <div class="storeLine">
                 <span class="storeLabel">City:</span>
                 <span>@Html.TextBoxFor(model => model.City, new {@class = "k-textbox", data_bind = "value: city"})</span>
