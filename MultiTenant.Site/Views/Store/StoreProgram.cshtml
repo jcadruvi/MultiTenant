@@ -30,17 +30,17 @@
                 <span class="storeLabel">Id:</span>
                 <span>@Html.TextBoxFor(model => model.Id, new {@class = "k-textbox", data_bind = "value: id"})</span>
             </div>
-            <div>@Html.ValidationMessageFor(model => model.Id)</div>
+            <div class="storeValidation">@Html.ValidationMessageFor(model => model.Id)</div>
             <div class="storeLine">
                 <span class="storeLabel">Name:</span>
                 <span>@Html.TextBoxFor(model => model.Name, new {@class = "k-textbox", data_bind = "value: name"})</span>
             </div>
-            <div>@Html.ValidationMessageFor(model => model.Name)</div>
+            <div class="storeValidation">@Html.ValidationMessageFor(model => model.Name)</div>
             <div class="storeLine"> 
                 <span class="storeLabel">Number:</span>
                 <span>@Html.TextBoxFor(model => model.Number, new {@class = "k-textbox", data_bind = "value: number"})</span>
             </div>
-            <div>@Html.ValidationMessageFor(model => model.Number)</div>
+            <div class="storeValidation">@Html.ValidationMessageFor(model => model.Number)</div>
             <div class="storeLine">
                 <span class="storeLabel">City:</span>
                 <span>@Html.TextBoxFor(model => model.City, new {@class = "k-textbox", data_bind = "value: city"})</span>
@@ -61,6 +61,7 @@
             <strong>Programs</strong>
         </div>
         <div id="programDetail">
+            <div id="programValidation">Program is required.</div>
             <div class="programLine">
                 <span class="programLabel">Program:</span><span class="programDropDown"></span>
                 <span class="programLabel">Survey:</span><span class="surveyDropDown"></span>

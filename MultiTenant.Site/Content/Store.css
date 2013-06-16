@@ -10,6 +10,11 @@
     margin: 10px 0 10px 0;
 }
 
+#programValidation {
+	color: red;
+	margin: 10px 0 0 5px;
+}
+
 #saveButton {
     margin: 0 0 0 300px;
 }
@@ -35,6 +40,10 @@
 .storePanel {
     margin: 10px 0 0 0;
     width: 490px;
+}
+
+.storeValidation {
+	margin: 0 0 10px 10px;
 }
 
 #traitAddButton {
