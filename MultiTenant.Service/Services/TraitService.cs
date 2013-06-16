@@ -17,6 +17,10 @@ namespace MultiTenant.Service.Services
         {
             _traitRepository = TraitRepository.Instance;
         }
+        public void DeleteTrait(int id)
+        {
+            _traitRepository.DeleteTrait(id);
+        }
         public IEnumerable<Trait> GetAddTraits()
         {
             return _traitRepository.GetAddTraits();

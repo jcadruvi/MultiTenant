@@ -16,6 +16,11 @@ namespace MultiTenant.Controllers
         {
             _traitService = traitService;
         }
+        [HttpDelete]
+        public void DeleteTrait(int id)
+        {
+            _traitService.DeleteTrait(id);
+        }
         public IEnumerable<Trait> GetAddTraits()
         {
             return _traitService.GetAddTraits();

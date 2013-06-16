@@ -9,6 +9,7 @@ namespace MultiTenant.Service.Interfaces
 {
     public interface ITraitService
     {
+        void DeleteTrait(int id);
         IEnumerable<Trait> GetAddTraits();
         IEnumerable<Trait> GetViewTraits();
     }

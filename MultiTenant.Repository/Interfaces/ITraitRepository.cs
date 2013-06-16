@@ -9,6 +9,7 @@ namespace MultiTenant.Repository.Interfaces
 {
     public interface ITraitRepository
     {
+        void DeleteTrait(int id);
         IEnumerable<Trait> GetAddTraits();
         IEnumerable<Trait> GetViewTraits();
     }

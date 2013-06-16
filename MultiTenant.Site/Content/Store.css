@@ -52,6 +52,10 @@
     width: 203px;
 }
 
+#deleteTraitButton {
+	margin: 0 0 0 50px;
+}
+
 .traitPanelExpanded {
     padding: 0 0 10px 0;
     margin: 10px 0 0 0;

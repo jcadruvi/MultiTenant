@@ -1,6 +1,9 @@
 ﻿function StoreViewModelFunc(settings) {
     var self = {};
-    
+    var deleteStoreUrl = null;
+    var getStoreUrl = null;
+    var programFeature = null;
+
     self.$programButton = $('#programButton');
     self.$programDetail = $('#programDetail');
     self.$storeButton = $('#storeButton');
@@ -22,9 +25,9 @@
     self.traitViewGridData = null;
 
     if (settings) {
-        self.deleteStoreUrl = settings.deleteStoreUrl;
-        self.getStoreUrl = settings.getStoreUrl;
-        self.programFeature = settings.programFeature;
+        deleteStoreUrl = settings.deleteStoreUrl;
+        getStoreUrl = settings.getStoreUrl;
+        programFeature = settings.programFeature;
     }
 
     var doCollapseProgram = function() {
@@ -96,6 +99,10 @@
             type: 'DELETE',
             url: self.deleteStoreUrl + '?id=' + id
         });
+    };
+
+    self.onDeleteTraiClick = function () {
+
     };
 
     self.onExpandAllClick = function() {

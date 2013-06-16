@@ -55,6 +55,11 @@ namespace MultiTenant.Repository.Repositories
             });
         }
 
+        public void DeleteTrait(int id)
+        {
+            _viewTraits.Remove(_viewTraits.First(t => t.Id == id));
+        }
+
         public IEnumerable<Trait> GetAddTraits()
         {
             return _addTraits;

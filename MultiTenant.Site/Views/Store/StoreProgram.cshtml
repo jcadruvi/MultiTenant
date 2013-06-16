@@ -86,6 +86,7 @@
         <div class="panel" id="traitViewPanel">
             <div class="panelHeader">
                 <strong>View Traits</strong>
+                <input class="k-button" data-bind="click: onDeleteTraitClick" id="deleteTraitButton" type="button" value="Delete" />
             </div>
             <div id="traitViewGrid"></div>
         </div>
@@ -113,6 +114,7 @@
         var programFeature = @Html.Raw(Json.Encode(AccessHelper.HasAccess(Model.CurrentTenant, AccessTypes.ProgramFeature)));
         var storeViewModel = StoreViewModelFunc({
             deleteStoreUrl: "@Url.Action("Delete", "api/StoreApi", new { Area = "" })",
+            deleteTraitUrl: "@Url.Action("Delete", "api/TraitApi", new { Area = "" })",
             getStoreUrl: "@Url.Action("Get", "api/StoreApi", new { Area = "" })",
             programFeature: programFeature
         });
@@ -124,7 +126,6 @@
                 storeViewModel.onStoreSuccess();
             },
             type: 'POST'
-
         });
         $("#storeGrid").kendoGrid({
             autoBind: true,
