@@ -78,6 +78,10 @@
         return dataItem.Id;
     };
 
+    self.onBeforeSubmit = function () {
+        return $('form').validate().form();
+    };
+
     self.onCollapseAllClick = function() {
         doCollapseStore();
         doCollapseTrait();

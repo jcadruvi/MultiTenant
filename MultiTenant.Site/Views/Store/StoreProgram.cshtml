@@ -120,6 +120,7 @@
         });
         storeViewModel.setObservables();
         $('#storesForm').ajaxForm({
+            beforeSubmit: storeViewModel.onBeforeSubmit,
             dataType: 'json',
             iframe: false,
             success: function() {
