@@ -1,4 +1,5 @@
-﻿@using MultiTenant.Common.Types
+﻿@using System.Web.Optimization
+@using MultiTenant.Common.Types
 @using MultiTenant.Helpers
 @model MultiTenant.Models.StoreViewModel
 @{
@@ -107,13 +108,12 @@
     </div>
 </div>
 
-<script src="@Url.Script("StoreViewModel.js")"></script>
-<script src="@Url.Script("StoreViewModelFunc.js")"></script>
+@Scripts.Render("~/Scripts/store.bundle.javascript")
 
 <script type="text/javascript">
     (function() {
         var programFeature = @Html.Raw(Json.Encode(AccessHelper.HasAccess(Model.CurrentTenant, AccessTypes.ProgramFeature)));
-        var storeViewModel = StoreViewModelFunc({
+        var storeViewModel = storeViewModelFactory({
             deleteStoreUrl: "@Url.Action("Delete", "api/StoreApi", new { Area = "" })",
             deleteTraitUrl: "@Url.Action("Delete", "api/TraitApi", new { Area = "" })",
             getStoreUrl: "@Url.Action("Get", "api/StoreApi", new { Area = "" })",

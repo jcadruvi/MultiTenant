@@ -41,6 +41,10 @@ namespace MultiTenant.App_Start
                          "~/Scripts/jquery.validate.js",
                          "~/Scripts/jquery.validate.unobtrusive.js",
                          "~/Scripts/jquery.unobtrusive-ajax.js"));
+
+            bundles.Add(new ScriptBundle("~/Scripts/store.bundle.javascript")
+                .Include("~/Scripts/StoreViewModelFunc.js",
+                         "~/Scripts/StoreViewModelFactory.js"));
         }
     }
 }

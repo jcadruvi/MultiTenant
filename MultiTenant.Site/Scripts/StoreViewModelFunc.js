@@ -1,4 +1,4 @@
-﻿function StoreViewModelFunc(settings) {
+﻿function storeViewModelFunc(settings) {
     var self = {};
     var deleteStoreUrl = null;
     var deleteTraitUrl = null;
