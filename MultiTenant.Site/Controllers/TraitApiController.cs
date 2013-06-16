@@ -17,7 +17,7 @@ namespace MultiTenant.Controllers
             _traitService = traitService;
         }
         [HttpDelete]
-        public void DeleteTrait(int id)
+        public void Delete(int id)
         {
             _traitService.DeleteTrait(id);
         }

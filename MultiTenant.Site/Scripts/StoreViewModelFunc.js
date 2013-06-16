@@ -1,6 +1,7 @@
 ﻿function StoreViewModelFunc(settings) {
     var self = {};
     var deleteStoreUrl = null;
+    var deleteTraitUrl = null;
     var getStoreUrl = null;
     var programFeature = null;
 
@@ -26,6 +27,7 @@
 
     if (settings) {
         deleteStoreUrl = settings.deleteStoreUrl;
+        deleteTraitUrl = settings.deleteTraitUrl;
         getStoreUrl = settings.getStoreUrl;
         programFeature = settings.programFeature;
     }
@@ -64,12 +66,12 @@
         self.$traitPanel.removeClass('traitPanelCollapsed');
     };
 
-    var getSelectedStoreId = function() {
+    var getSelectedId = function(gridData) {
         var dataItem;
-        if (!self.storeGridData) {
+        if (!gridData) {
             return null;
         }
-        dataItem = self.storeGridData.dataItem(self.storeGridData.select());
+        dataItem = gridData.dataItem(gridData.select());
         if (!dataItem) {
             return null;
         }
@@ -79,13 +81,13 @@
     self.onCollapseAllClick = function() {
         doCollapseStore();
         doCollapseTrait();
-        if (self.programFeature) {
+        if (programFeature) {
             doCollapseProgram();
         }
     };
 
     self.onDeleteClick = function() {
-        var id = getSelectedStoreId();
+        var id = getSelectedId(self.storeGridData);
         $.ajax({
             success: function () {
                 self.storeGridData.dataSource.read();
@@ -97,18 +99,26 @@
                 self.traitViewGridData.dataSource.data([]);
             },
             type: 'DELETE',
-            url: self.deleteStoreUrl + '?id=' + id
+            url: deleteStoreUrl + '?id=' + id
         });
     };
 
-    self.onDeleteTraiClick = function () {
+    self.onDeleteTraitClick = function () {
+        var id = getSelectedId(self.traitViewGridData);
 
+        $.ajax({
+            success: function () {
+                self.traitViewGridData.dataSource.read();
+            },
+            type: 'DELETE',
+            url: deleteTraitUrl + '?id=' + id
+        });
     };
 
     self.onExpandAllClick = function() {
         doExpandStore();
         doExpandTrait();
-        if (self.programFeature) {
+        if (programFeature) {
             doExpandProgram();
         }
     };
@@ -136,7 +146,7 @@
     self.onStoreGridChanged = function() {
         var postData = {};
 
-        postData.ID = getSelectedStoreId();
+        postData.ID = getSelectedId(self.storeGridData);
         $.ajax({
             data: postData,
             dataType: 'json',
@@ -148,7 +158,7 @@
                 self.state(result.State);
             },
             type: 'GET',
-            url: self.getStoreUrl
+            url: getStoreUrl
         });
     };
 
