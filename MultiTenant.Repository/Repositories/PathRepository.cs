@@ -27,7 +27,7 @@ namespace MultiTenant.Repository.Repositories
             {
                 TenantId = TenantIds.AppleId,
                 Type = ContentTypes.RetailerPartial,
-                Location = "Partial1"
+                Location = "../../Areas/Apple/Views/Retailer/General"
             });
 
             #endregion

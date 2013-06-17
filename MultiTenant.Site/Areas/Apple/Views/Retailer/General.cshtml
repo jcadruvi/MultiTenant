@@ -1,1 +1,21 @@
-﻿This is the first partial view.
+﻿@model MultiTenant.Models.RetailerViewModel
+
+<section class="panel retailerPanel">
+    <div class="panelHeader"><strong>General</strong></div>
+    <div>
+        <span class="retailerLabel">Rank:</span>
+        <span>@Html.TextBoxFor(model => model.Rank)</span>
+    </div>
+    <div>
+        <span class="retailerLabel">District:</span>
+        <span>@Html.TextBoxFor(model => model.OrgLevel)</span>
+    </div>
+    <div>
+        <span class="retailerLabel">Territory:</span>
+        <span>@Html.TextBoxFor(model => model.SubOrgLevel)</span>
+    </div>
+    <div>
+        <span class="retailerLabel">Type:</span>
+        <span>@Html.TextBoxFor(model => model.Type)</span>
+    </div>
+</section>

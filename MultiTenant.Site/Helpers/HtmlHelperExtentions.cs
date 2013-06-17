@@ -73,5 +73,10 @@ namespace MultiTenant.Helpers
             }
             return MvcHtmlString.Create(menu.ToString());
         }
+
+        public static MvcHtmlString StyleBundle(this HtmlHelper helper, Tenant currentTenant, string defaultStyle)
+        {
+            return null;
+        }
     }
 }
