@@ -14,7 +14,7 @@ namespace MultiTenant.Helpers
 {
     public static class HtmlHelperExtentions
     {
-        public static MvcHtmlString PartialHelper(this HtmlHelper helper, Tenant currentTenant, string type)
+        public static MvcHtmlString PartialHelper(this HtmlHelper helper, Tenant currentTenant, string type, object model)
         {
             IPathService pathService = DependencyResolver.Current.GetService<IPathService>();
             string location; 
@@ -27,18 +27,22 @@ namespace MultiTenant.Helpers
             {
                 return null;
             }
-            return helper.Partial(location);
+            return helper.Partial(location, model);
         }
 
-        public static MvcHtmlString PartialHelper(this HtmlHelper helper, Tenant currentTenant, string type, string defaultLocation)
+        public static MvcHtmlString PartialHelper(this HtmlHelper helper, Tenant currentTenant, string type, object model, string defaultLocation)
         {
             IPathService pathService = DependencyResolver.Current.GetService<IPathService>();
-            string location = defaultLocation;
+            string location = null;
             if (currentTenant != null && pathService != null)
             {
                 location = pathService.GetContentLocation(currentTenant.Id, type);
             }
-            return helper.Partial(location);
+            if (location == null)
+            {
+                location = defaultLocation;
+            }
+            return helper.Partial(location, model);
         }
 
         public static MvcHtmlString SiteMenu(this HtmlHelper helper, Tenant currentTenant)

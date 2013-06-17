@@ -30,13 +30,6 @@ namespace MultiTenant.Repository.Repositories
                 Location = "Partial1"
             });
 
-            _contentPaths.Add(new ContentPath
-            {
-                TenantId = TenantIds.MicrosoftId,
-                Type = ContentTypes.RetailerPartial,
-                Location = "Partial2"
-            });
-
             #endregion
 
             #region Initialize Request Paths
