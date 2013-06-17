@@ -323,7 +323,7 @@
     <Content Include="Views\Report\Index.cshtml" />
     <Content Include="Views\Store\StoreProgram.cshtml" />
     <Content Include="Areas\Apple\Views\Retailer\Partial1.cshtml" />
-    <Content Include="Views\Retailer\Partial2.cshtml" />
+    <Content Include="Views\Retailer\General.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MultiTenant.Common\MultiTenant.Common.csproj">
