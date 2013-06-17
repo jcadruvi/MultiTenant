@@ -1,3 +1,3 @@
 ﻿function storeViewModelFactory(settings) {
-    return storeViewModelFunc(settings);
+    return storeViewModelApple(settings);
 }

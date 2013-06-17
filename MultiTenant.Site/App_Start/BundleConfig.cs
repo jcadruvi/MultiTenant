@@ -44,6 +44,7 @@ namespace MultiTenant.App_Start
 
             bundles.Add(new ScriptBundle("~/Scripts/store.bundle.javascript")
                 .Include("~/Scripts/StoreViewModelFunc.js",
+                         "~/Areas/Apple/Scripts/StoreViewModelApple.js",
                          "~/Scripts/StoreViewModelFactory.js"));
         }
     }

@@ -1,5 +1,8 @@
 ﻿function storeViewModelFunc(settings) {
     var self = {};
+
+    var $traitValidation = $('');
+
     var deleteStoreUrl = null;
     var deleteTraitUrl = null;
     var getStoreUrl = null;
@@ -80,11 +83,11 @@
 
     self.onBeforeSubmit = function () {
         if (self.traitViewGridData.dataSource.data().length == 0) {
-            $('#traitValidation').html('<strong>Trait is required.</strong>');
-            $('#traitValidation').css('display', 'block');
+            $traitValidation.html('<strong>Trait is required.</strong>');
+            $traitValidation.css('display', 'block');
             return false;
         } else {
-            $('#traitValidation').css('display', 'none');
+            $traitValidation.css('display', 'none');
         }
         return $('form').validate().form();
     };
