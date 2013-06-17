@@ -322,7 +322,7 @@
     <Content Include="Views\Shared\Error404.cshtml" />
     <Content Include="Views\Report\Index.cshtml" />
     <Content Include="Views\Store\StoreProgram.cshtml" />
-    <Content Include="Views\Retailer\Partial1.cshtml" />
+    <Content Include="Areas\Apple\Views\Retailer\Partial1.cshtml" />
     <Content Include="Views\Retailer\Partial2.cshtml" />
   </ItemGroup>
   <ItemGroup>
