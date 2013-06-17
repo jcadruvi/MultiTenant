@@ -3,9 +3,9 @@
 
     var baseOnBeforeSubmit = self.onBeforeSubmit;
 
-    self.onBeforeSubmit = function () {
+    //self.onBeforeSubmit = function () {
 
-    }
+    //}
 
     return self;
 }

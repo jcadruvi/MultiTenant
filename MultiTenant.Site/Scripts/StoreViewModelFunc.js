@@ -1,23 +1,22 @@
 ﻿function storeViewModelFunc(settings) {
     var self = {};
 
-    var $traitValidation = $('');
+    var $programButton = $('#programButton');
+    var $programDetail = $('#programDetail');
+    var $storeButton = $('#storeButton');
+    var $storeDetail = $('#storeDetail');
+    var $traitAddButton = $('#traitAddButton');
+    var $traitAddPanel = $('#traitAddPanel');
+    var $traitButton = $('#traitButton');
+    var $traitDetail = $('#traitDetail');
+    var $traitPanel = $('#traitPanel');
+    var $traitViewPanel = $('#traitViewPanel');
+    var $traitValidation = $('#traitValidation');
 
     var deleteStoreUrl = null;
     var deleteTraitUrl = null;
     var getStoreUrl = null;
     var programFeature = null;
-
-    self.$programButton = $('#programButton');
-    self.$programDetail = $('#programDetail');
-    self.$storeButton = $('#storeButton');
-    self.$storeDetail = $('#storeDetail');
-    self.$traitAddButton = $('#traitAddButton');
-    self.$traitAddPanel = $('#traitAddPanel');
-    self.$traitButton = $('#traitButton');
-    self.$traitDetail = $('#traitDetail');
-    self.$traitPanel = $('#traitPanel');
-    self.$traitViewPanel = $('#traitViewPanel');
 
     self.city = null;
     self.id = null;
@@ -36,37 +35,37 @@
     }
 
     var doCollapseProgram = function() {
-        self.$programDetail.hide();
-        self.$programButton.val('+');
+        $programDetail.hide();
+        $programButton.val('+');
     };
 
     var doCollapseStore = function() {
-        self.$storeDetail.hide();
-        self.$storeButton.val('+');
+        $storeDetail.hide();
+        $storeButton.val('+');
     };
 
     var doCollapseTrait = function() {
-        self.$traitDetail.hide();
-        self.$traitButton.val('+');
-        self.$traitPanel.removeClass('traitPanelExpanded');
-        self.$traitPanel.addClass('traitPanelCollapsed');
+        $traitDetail.hide();
+        $traitButton.val('+');
+        $traitPanel.removeClass('traitPanelExpanded');
+        $traitPanel.addClass('traitPanelCollapsed');
     };
 
     var doExpandProgram = function() {
-        self.$programDetail.show();
-        self.$programButton.val('-');
+        $programDetail.show();
+        $programButton.val('-');
     };
 
     var doExpandStore = function() {
-        self.$storeDetail.show();
-        self.$storeButton.val('-');
+        $storeDetail.show();
+        $storeButton.val('-');
     };
 
     var doExpandTrait = function() {
-        self.$traitDetail.show();
-        self.$traitButton.val('-');
-        self.$traitPanel.addClass('traitPanelExpanded');
-        self.$traitPanel.removeClass('traitPanelCollapsed');
+        $traitDetail.show();
+        $traitButton.val('-');
+        $traitPanel.addClass('traitPanelExpanded');
+        $traitPanel.removeClass('traitPanelCollapsed');
     };
 
     var getSelectedId = function(gridData) {
@@ -138,7 +137,7 @@
     };
 
     self.onProgramClick = function() {
-        if (self.$programButton.val() === '+') {
+        if ($programButton.val() === '+') {
             doExpandProgram();
         } else {
             doCollapseProgram();
@@ -146,7 +145,7 @@
     };
 
     self.onStoreClick = function() {
-        if (self.$storeButton.val() === '+') {
+        if ($storeButton.val() === '+') {
             doExpandStore();
         } else {
             doCollapseStore();
@@ -177,7 +176,7 @@
     };
 
     self.onTraitClick = function() {
-        if (self.$traitButton.val() == '+') {
+        if ($traitButton.val() == '+') {
             doExpandTrait();
         } else {
             doCollapseTrait();
