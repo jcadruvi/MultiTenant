@@ -62,7 +62,7 @@
             <strong>Programs</strong>
         </div>
         <div id="programDetail">
-            <div id="programValidation">
+            <div id="programValidation" style="display: none">
                 <strong>Program is required.</strong>
             </div>
             <div class="programLine">
@@ -87,7 +87,9 @@
         <strong>Traits</strong>
     </div>
     <div id="traitDetail">
-        <div id="traitValidation"></div>
+        <div id="traitValidation" style="display: none">
+            <strong>Trait is required.</strong>
+        </div>
         <div class="panel" id="traitViewPanel">
             <div class="panelHeader">
                 <strong>View Traits</strong>
@@ -120,7 +122,9 @@
             deleteStoreUrl: "@Url.Action("Delete", "api/StoreApi", new { Area = "" })",
             deleteTraitUrl: "@Url.Action("Delete", "api/TraitApi", new { Area = "" })",
             getStoreUrl: "@Url.Action("Get", "api/StoreApi", new { Area = "" })",
-            programFeature: programFeature
+            programFeature: programFeature,
+            tenantId: "@Model.CurrentTenant.Id",
+            tenantIdApple: "@TenantIds.AppleId"
         });
         storeViewModel.setObservables();
         $('#storesForm').ajaxForm({

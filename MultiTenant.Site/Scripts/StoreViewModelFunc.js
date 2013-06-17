@@ -82,7 +82,6 @@
 
     self.onBeforeSubmit = function () {
         if (self.traitViewGridData.dataSource.data().length == 0) {
-            $traitValidation.html('<strong>Trait is required.</strong>');
             $traitValidation.css('display', 'block');
             return false;
         } else {
