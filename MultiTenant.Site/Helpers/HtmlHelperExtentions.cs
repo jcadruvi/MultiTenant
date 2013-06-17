@@ -30,6 +30,17 @@ namespace MultiTenant.Helpers
             return helper.Partial(location);
         }
 
+        public static MvcHtmlString PartialHelper(this HtmlHelper helper, Tenant currentTenant, string type, string defaultLocation)
+        {
+            IPathService pathService = DependencyResolver.Current.GetService<IPathService>();
+            string location = defaultLocation;
+            if (currentTenant != null && pathService != null)
+            {
+                location = pathService.GetContentLocation(currentTenant.Id, type);
+            }
+            return helper.Partial(location);
+        }
+
         public static MvcHtmlString SiteMenu(this HtmlHelper helper, Tenant currentTenant)
         {
             ILinkService linkService = DependencyResolver.Current.GetService<ILinkService>(); 
