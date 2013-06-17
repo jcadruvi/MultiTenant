@@ -76,6 +76,11 @@
     width: 490px;
 }
 
+#traitValidation {
+	color: red;
+	margin: 5px 0 0 10px;
+}
+
 #traitViewPanel {
     display: inline-block;
     height: 400px;
