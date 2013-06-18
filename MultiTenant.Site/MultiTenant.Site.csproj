@@ -187,6 +187,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Areas\Apple\Scripts\StoreViewModelApple.js" />
+    <Content Include="Areas\Microsoft\Content\Retailer.css" />
     <Content Include="Content\BlueOpal\editor.png" />
     <Content Include="Content\BlueOpal\imagebrowser.png" />
     <Content Include="Content\BlueOpal\loading-image.gif" />
@@ -195,6 +196,7 @@
     <Content Include="Content\BlueOpal\slider-v.gif" />
     <Content Include="Content\BlueOpal\sprite.png" />
     <Content Include="Content\kendo.common.css" />
+    <Content Include="Content\Retailer.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Store.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

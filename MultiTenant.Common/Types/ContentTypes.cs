@@ -9,5 +9,6 @@ namespace MultiTenant.Common.Types
     public static class ContentTypes
     {
         public static readonly string RetailerPartial = "RetailerPartial";
+        public static readonly string RetailerStylesheet = "RetailerStylesheet";
     }
 }

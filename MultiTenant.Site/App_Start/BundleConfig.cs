@@ -28,6 +28,13 @@ namespace MultiTenant.App_Start
 						 "~/Content/kendo.mobitor.css",
                          "~/Content/Site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/retailer.bundle.css")
+                .Include("~/Content/Retailer.css"));
+
+            bundles.Add(new StyleBundle("~/Content/retailer.microsoft.bundle.css")
+                .Include("~/Content/Retailer.css",
+                         "~/Areas/Microsoft/Content/Retailer.css"));
+
             bundles.Add(new ScriptBundle("~/Scripts/layout.bundle.javascript")
                 .Include("~/Scripts/jquery-1.9.1.js",
                          "~/Scripts/jquery.form.js",

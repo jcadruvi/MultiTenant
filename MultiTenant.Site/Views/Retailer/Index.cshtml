@@ -1,10 +1,13 @@
 ﻿@model MultiTenant.Models.RetailerViewModel
+@using System.Web.Optimization
 @using MultiTenant.Helpers
 @using MultiTenant.Common.Types
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@Styles.Render(@Url.StyleBundle(Model.CurrentTenant, @ContentTypes.RetailerStylesheet, "~/Content/retailer.bundle.css"))
 
 <h2>This is the CORE retailer.</h2>
 <div id="retailerGrid"></div>
@@ -28,7 +31,7 @@
 
  @if (AccessHelper.HasAccess(Model.CurrentTenant, AccessTypes.Premium))
  {
-     <section class="panel retailerPanel">
+     <section id="" class="panel retailerPanel">
          <div class="panelHeader"><strong>Sales</strong></div>
          <div>
              <span class="retailerLabel">Calendar Sales:</span>

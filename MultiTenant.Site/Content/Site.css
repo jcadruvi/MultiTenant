@@ -106,17 +106,6 @@ textarea {
 	text-shadow: 0 0.15em 0.10em rgba(0, 0, 0, 0.25);	
 }
 
-.retailerLabel {
-    display: inline-block;
-    margin-left: 10px;
-    width: 100px;
-}
-
-.retailerPanel {
-    margin-top: 10px;
-    width: 300px;
-}
-
 #tenantsParent {
     margin: 0 0 10px 0;
 }

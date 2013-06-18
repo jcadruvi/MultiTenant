@@ -30,6 +30,13 @@ namespace MultiTenant.Repository.Repositories
                 Location = "../../Areas/Apple/Views/Retailer/General"
             });
 
+            _contentPaths.Add(new ContentPath
+            {
+                TenantId = TenantIds.MicrosoftId,
+                Type = ContentTypes.RetailerStylesheet,
+                Location = "~/Content/retailer.microsoft.bundle.css"
+            });
+
             #endregion
 
             #region Initialize Request Paths

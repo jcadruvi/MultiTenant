@@ -27,5 +27,20 @@ namespace MultiTenant.Helpers
         {
             return helper.Content("~/Content/" + styleName);
         }
+        public static string StyleBundle(this UrlHelper helper, Tenant currentTenant, string type, string defaultLocation)
+        {
+            IPathService pathService = DependencyResolver.Current.GetService<IPathService>();
+            string location;
+            if (currentTenant == null || pathService == null)
+            {
+                return defaultLocation;
+            }
+            location = pathService.GetContentLocation(currentTenant.Id, type);
+            if (location == null)
+            {
+                return defaultLocation;
+            }
+            return helper.Content(location);
+        }
     }
 }

@@ -1,0 +1,10 @@
+﻿.retailerLabel {
+    display: inline-block;
+    margin-left: 10px;
+    width: 100px;
+}
+
+.retailerPanel {
+    margin-top: 10px;
+    width: 300px;
+}
