@@ -54,7 +54,7 @@ namespace MultiTenant.Helpers
             }
 
             TagBuilder itemTag;
-            IList<Link> menuItems = linkService.GetLinks(currentTenant.Id, LinkTypes.Menu);
+            IList<Link> menuItems = linkService.GetMenuLinks(currentTenant.Id);
             TagBuilder menu = new TagBuilder("ul");
             
             menu.MergeAttribute("id", "menu");

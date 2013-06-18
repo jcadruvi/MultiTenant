@@ -105,7 +105,7 @@ namespace MultiTenant.Repository.Repositories
                     select m).ToList();
         }
 
-        private IList<Link> GetMenuLinks(int tenantId)
+        public IList<Link> GetMenuLinks(int tenantId)
         {
             var coreLinks = GetLinks(TenantIds.CoreId, LinkTypes.Menu);
             var tenantLinks = GetLinks(tenantId, LinkTypes.Menu);

@@ -11,5 +11,6 @@ namespace MultiTenant.Repository.Interfaces
     {
         Link GetLink(int tenantId, string linkType);
         IList<Link> GetLinks(int tenantId, string linkType);
+        IList<Link> GetMenuLinks(int tenantId);
     }
 }

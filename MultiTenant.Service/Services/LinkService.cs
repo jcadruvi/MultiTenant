@@ -25,5 +25,9 @@ namespace MultiTenant.Service.Services
         {
             return _repository.GetLinks(tenantId, linkType);
         }
+        public IList<Link> GetMenuLinks(int tenantId)
+        {
+            return _repository.GetMenuLinks(tenantId);
+        }
     }
 }
