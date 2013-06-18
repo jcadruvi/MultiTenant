@@ -49,15 +49,6 @@ namespace MultiTenant.Repository.Repositories
             });
             _links.Add(new Link
             {
-                Action = "Index",
-                Area = "Display",
-                Controller = "Display",
-                Name = "Display",
-                TennantId = TenantIds.CoreId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
                 Action = "UserView",
                 Area = "Admin",
                 Controller = "User",
@@ -90,7 +81,15 @@ namespace MultiTenant.Repository.Repositories
                 TennantId = TenantIds.CoreId,
                 Type = LinkTypes.Menu
             });
-
+            _links.Add(new Link
+            {
+                Action = "Index",
+                Area = "Display",
+                Controller = "Display",
+                Name = "Display",
+                TennantId = TenantIds.AppleId,
+                Type = LinkTypes.Menu
+            });
             #endregion
         }
         public static LinkRepository Instance { get { return _instance; } }
