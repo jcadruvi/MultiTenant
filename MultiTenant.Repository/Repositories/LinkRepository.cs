@@ -28,7 +28,7 @@ namespace MultiTenant.Repository.Repositories
                 Action = "Store",
                 Controller = "Store",
                 Name = "Store",
-                TennantId = TenantIds.AppleId,
+                TennantId = TenantIds.CoreId,
                 Type = LinkTypes.Menu
             });
             _links.Add(new Link
@@ -36,7 +36,7 @@ namespace MultiTenant.Repository.Repositories
                 Action = "StoreProgram",
                 Controller = "Store",
                 Name = "Program",
-                TennantId = TenantIds.AppleId,
+                TennantId = TenantIds.CoreId,
                 Type = LinkTypes.Menu
             });
             _links.Add(new Link
@@ -44,7 +44,7 @@ namespace MultiTenant.Repository.Repositories
                 Action = "Index",
                 Controller = "Retailer",
                 Name = "Retailer",
-                TennantId = TenantIds.AppleId,
+                TennantId = TenantIds.CoreId,
                 Type = LinkTypes.Menu
             });
             _links.Add(new Link
@@ -53,7 +53,7 @@ namespace MultiTenant.Repository.Repositories
                 Area = "Display",
                 Controller = "Display",
                 Name = "Display",
-                TennantId = TenantIds.AppleId,
+                TennantId = TenantIds.CoreId,
                 Type = LinkTypes.Menu
             });
             _links.Add(new Link
@@ -62,7 +62,7 @@ namespace MultiTenant.Repository.Repositories
                 Area = "Admin",
                 Controller = "User",
                 Name = "User",
-                TennantId = TenantIds.AppleId,
+                TennantId = TenantIds.CoreId,
                 Type = LinkTypes.Menu
             });
             _links.Add(new Link
@@ -70,7 +70,7 @@ namespace MultiTenant.Repository.Repositories
                 Action = "Index",
                 Controller = "Image",
                 Name = "Image",
-                TennantId = TenantIds.AppleId,
+                TennantId = TenantIds.CoreId,
                 Type = LinkTypes.Menu
             });
             _links.Add(new Link
@@ -79,7 +79,7 @@ namespace MultiTenant.Repository.Repositories
                 Area = "Survey",
                 Controller = "Survey",
                 Name = "Survey",
-                TennantId = TenantIds.AppleId,
+                TennantId = TenantIds.CoreId,
                 Type = LinkTypes.Menu
             });
             _links.Add(new Link
@@ -87,105 +87,7 @@ namespace MultiTenant.Repository.Repositories
                 Action = "Report",
                 Controller = "Report",
                 Name = "Report",
-                TennantId = TenantIds.AppleId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
-                Action = "Store",
-                Controller = "Store",
-                Name = "Store",
-                TennantId = TenantIds.MicrosoftId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
-                Action = "StoreProgram",
-                Controller = "Store",
-                Name = "Program",
-                TennantId = TenantIds.MicrosoftId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
-                Action = "Index",
-                Controller = "Retailer",
-                Name = "Retailer",
-                TennantId = TenantIds.MicrosoftId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
-                Action = "UserView",
-                Area = "Admin",
-                Controller = "User",
-                Name = "User",
-                TennantId = TenantIds.MicrosoftId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
-                Action = "Index",
-                Controller = "Image",
-                Name = "Image",
-                TennantId = TenantIds.MicrosoftId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
-                Action = "Survey",
-                Area = "Survey",
-                Controller = "Survey",
-                Name = "Survey",
-                TennantId = TenantIds.MicrosoftId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
-                Action = "Report",
-                Controller = "Report",
-                Name = "Report",
-                TennantId = TenantIds.MicrosoftId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
-                Action = "Store",
-                Controller = "Store",
-                Name = "Store",
-                TennantId = TenantIds.BestBuyId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
-                Action = "StoreProgram",
-                Controller = "Store",
-                Name = "Program",
-                TennantId = TenantIds.BestBuyId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
-                Action = "Index",
-                Controller = "Retailer",
-                Name = "Retailer",
-                TennantId = TenantIds.BestBuyId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
-                Action = "Index",
-                Controller = "Image",
-                Name = "Image",
-                TennantId = TenantIds.BestBuyId,
-                Type = LinkTypes.Menu
-            });
-            _links.Add(new Link
-            {
-                Action = "Report",
-                Controller = "Report",
-                Name = "Report",
-                TennantId = TenantIds.BestBuyId,
+                TennantId = TenantIds.CoreId,
                 Type = LinkTypes.Menu
             });
 
@@ -202,5 +104,12 @@ namespace MultiTenant.Repository.Repositories
                     where m.TennantId == tenantId && m.Type == linkType
                     select m).ToList();
         }
+
+        private IList<Link> GetMenuLinks(int tenantId)
+        {
+            var coreLinks = GetLinks(TenantIds.CoreId, LinkTypes.Menu);
+            var tenantLinks = GetLinks(tenantId, LinkTypes.Menu);
+            return coreLinks.Concat(tenantLinks).ToList();
+        } 
     }
 }
