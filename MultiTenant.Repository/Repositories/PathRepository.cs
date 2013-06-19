@@ -21,7 +21,7 @@ namespace MultiTenant.Repository.Repositories
             _contentPaths = new Collection<ContentPath>();
             _requestPaths = new Collection<RequestPath>();
 
-            #region
+            #region Initialize Content Paths
 
             _contentPaths.Add(new ContentPath
             {
