@@ -118,7 +118,7 @@
 <script type="text/javascript">
     (function() {
         var programFeature = @Html.Raw(Json.Encode(AccessHelper.HasAccess(Model.CurrentTenant, AccessTypes.ProgramFeature)));
-        var storeViewModel = storeViewModelFactory({
+        var viewModel = storeViewModelFactory({
             deleteStoreUrl: "@Url.Action("Delete", "api/StoreApi", new { Area = "" })",
             deleteTraitUrl: "@Url.Action("Delete", "api/TraitApi", new { Area = "" })",
             getStoreUrl: "@Url.Action("Get", "api/StoreApi", new { Area = "" })",
@@ -126,20 +126,20 @@
             tenantId: "@Model.CurrentTenant.Id",
             tenantIdApple: "@TenantIds.AppleId"
         });
-        storeViewModel.setObservables();
+        viewModel.setObservables();
         $('#storesForm').ajaxForm({
-            beforeSubmit: storeViewModel.onBeforeSubmit,
+            beforeSubmit: viewModel.onBeforeSubmit,
             dataType: 'json',
             iframe: false,
             success: function() {
-                storeViewModel.onStoreSuccess();
+                viewModel.onStoreSuccess();
             },
             type: 'POST'
         });
         $("#storeGrid").kendoGrid({
             autoBind: true,
             change: function() {
-                storeViewModel.onStoreGridChanged();
+                viewModel.onStoreGridChanged();
             },
             filterable: false,
             groupable: false,
@@ -203,7 +203,7 @@
                     width: "80px"
                 }]
         });
-        storeViewModel.storeGridData = $('#storeGrid').data('kendoGrid');
+        viewModel.storeGridData = $('#storeGrid').data('kendoGrid');
         if (programFeature) {
             $('.programDropDown').kendoComboBox({
                 dataTextField: "Value",
@@ -275,7 +275,7 @@
                         width: "180px"
                     }]
             });
-            storeViewModel.traitViewGridData = $("#traitViewGrid").data('kendoGrid');
+            viewModel.traitViewGridData = $("#traitViewGrid").data('kendoGrid');
         } else {
             $("#traitViewGrid").kendoGrid({
                 autoBind: true,
@@ -321,7 +321,7 @@
                         width: "180px"
                     }]
             });
-            storeViewModel.traitViewGridData = $("#traitViewGrid").data('kendoGrid');
+            viewModel.traitViewGridData = $("#traitViewGrid").data('kendoGrid');
             $("#traitAddGrid").kendoGrid({
                 autoBind: true,
                 change: function() {
@@ -366,8 +366,8 @@
                         width: "180px"
                     }]
             });
-            storeViewModel.traitAddGridData = $("#traitAddGrid").data('kendoGrid');
+            viewModel.traitAddGridData = $("#traitAddGrid").data('kendoGrid');
         }
-        ko.applyBindings(storeViewModel);
+        ko.applyBindings(viewModel);
     })();
 </script>
