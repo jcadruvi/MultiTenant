@@ -65,12 +65,12 @@
 
 <script type="text/javascript">
     (function () {
-        var storeViewModel = new StoreViewModel();
+        var viewModel = StoreViewModel();
         $('#storesForm').ajaxForm({
             dataType: 'json',
             iframe: false,
             success: function() {
-                storeViewModel.onStoreSuccess();
+                viewModel.onStoreSuccess();
             },
             type: 'POST'
 
@@ -185,7 +185,7 @@
                     width: "180px"
                 }]
         });
-        storeViewModel.$traitViewGridData = $("#traitViewGrid").data('kendoGrid');
+        viewModel.$traitViewGridData = $("#traitViewGrid").data('kendoGrid');
         $("#traitAddGrid").kendoGrid({
             autoBind: true,
             change: function () {
@@ -230,7 +230,7 @@
                     width: "180px"
                 }]
         });
-        storeViewModel.$traitAddGridData = $("#traitAddGrid").data('kendoGrid');
-        ko.applyBindings(storeViewModel);
+        viewModel.$traitAddGridData = $("#traitAddGrid").data('kendoGrid');
+        ko.applyBindings(viewModel);
     })();
 </script>
