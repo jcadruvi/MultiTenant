@@ -34,6 +34,11 @@
      @Html.Partial("../../Areas/Premium/Views/Retailer/RetailerSalesPartial", Model)
  }
 
+ @if (Model.CurrentTenant.Id == TenantIds.AppleId)
+ {
+     @Html.Partial("../../Areas/Apple/Views/Retailer/RetailerAppleProductsPartial", Model)
+ }
+
 @Html.PartialHelper(Model.CurrentTenant, @ContentTypes.RetailerPartial, Model, "General")
 
 <script type="text/javascript">

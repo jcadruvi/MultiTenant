@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using MultiTenant.Common.Types;
 using MultiTenant.RouteConstraints;
 
 namespace MultiTenant.Areas.Apple
@@ -19,7 +20,7 @@ namespace MultiTenant.Areas.Apple
                 name: "Apple_default",
                 url: "Apple/{controller}/{action}/{id}",
                 defaults: new { action = "Index", id = UrlParameter.Optional },
-                constraints: new { action = new TenantRouteConstraint(1) }
+                constraints: new { action = new TenantRouteConstraint(TenantIds.AppleId) }
             );
         }
     }

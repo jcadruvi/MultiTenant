@@ -1,0 +1,17 @@
+﻿@model MultiTenant.Models.RetailerViewModel
+
+<section id="" class="panel retailerPanel">
+    <div class="panelHeader"><strong>Products</strong></div>
+    <div>
+        <span class="retailerLabel">iPads:</span>
+        <span>@Html.TextBoxFor(model => model.Ipads)</span>
+    </div>
+    <div>
+        <span class="retailerLabel">iPods:</span>
+        <span>@Html.TextBoxFor(model => model.Ipods)</span>
+    </div>
+    <div>
+        <span class="retailerLabel">iPhones:</span>
+        <span>@Html.TextBoxFor(model => model.Iphones)</span>
+    </div>
+</section>

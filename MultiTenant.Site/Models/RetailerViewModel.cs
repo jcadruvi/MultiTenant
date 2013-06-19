@@ -10,6 +10,9 @@ namespace MultiTenant.Models
         public string CalendarSales { get; set; }
         public string FiscalSales { get; set; }
         public int? Id { get; set; }
+        public int? Ipads { get; set; }
+        public int? Iphones { get; set; }
+        public int? Ipods { get; set; }
         public string OrgLevel { get; set; }
         public string Name { get; set; }
         public string Number { get; set; }
