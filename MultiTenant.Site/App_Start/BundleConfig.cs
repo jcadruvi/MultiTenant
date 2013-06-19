@@ -50,7 +50,7 @@ namespace MultiTenant.App_Start
                          "~/Scripts/jquery.unobtrusive-ajax.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/store.bundle.javascript")
-                .Include("~/Scripts/StoreViewModelFunc.js",
+                .Include("~/Scripts/StoreViewModel.js",
                          "~/Areas/Apple/Scripts/StoreViewModelApple.js",
                          "~/Scripts/StoreViewModelFactory.js"));
         }

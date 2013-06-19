@@ -1,5 +1,5 @@
 ﻿function storeViewModelApple(settings) {
-    var self = storeViewModelFunc(settings);
+    var self = storeViewModel(settings);
 
     var $programDropDowns = $('.programDropDown');
     var $programValidation = $('#programValidation');
