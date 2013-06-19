@@ -150,6 +150,7 @@
     <Compile Include="Areas\Display\DisplayAreaRegistration.cs" />
     <Compile Include="Areas\Microsoft\Controllers\ReportController.cs" />
     <Compile Include="Areas\Microsoft\MicrosoftAreaRegistration.cs" />
+    <Compile Include="Areas\Premium\PremiumAreaRegistration.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Areas\Display\Controllers\DisplayController.cs" />
@@ -290,6 +291,9 @@
     <Folder Include="Areas\Display\Views\Shared\" />
     <Folder Include="Areas\Microsoft\Models\" />
     <Folder Include="Areas\Microsoft\Views\Shared\" />
+    <Folder Include="Areas\Premium\Controllers\" />
+    <Folder Include="Areas\Premium\Models\" />
+    <Folder Include="Areas\Premium\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -311,6 +315,8 @@
     <Content Include="Areas\Display\Views\Web.config" />
     <Content Include="Areas\Apple\Views\Report\Index.cshtml" />
     <Content Include="Areas\Microsoft\Views\Report\Index.cshtml" />
+    <Content Include="Areas\Premium\Views\Web.config" />
+    <Content Include="Areas\Premium\Views\Retailer\RetailerSalesPartial.cshtml" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
