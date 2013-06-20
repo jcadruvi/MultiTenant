@@ -15,7 +15,7 @@ namespace MultiTenant.Service.Services
         {
             _repository = PathRepository.Instance;
         }
-        public string GetContentLocation(int tenantId, string type)
+        public string GetContentLocation(string tenantId, string type)
         {
             return _repository.GetContentLocation(tenantId, type);
         }
