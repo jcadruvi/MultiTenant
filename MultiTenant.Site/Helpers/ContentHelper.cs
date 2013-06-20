@@ -35,7 +35,7 @@ namespace MultiTenant.Helpers
             {
                 return defaultLocation;
             }
-            location = pathService.GetContentLocation(currentTenant.Id, type);
+            location = pathService.GetContentLocation(currentTenant.Id.ToString(), type);
             if (location == null)
             {
                 return defaultLocation;
