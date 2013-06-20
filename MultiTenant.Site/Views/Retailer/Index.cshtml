@@ -39,7 +39,7 @@
      @Html.Partial("../../Areas/Apple/Views/Retailer/RetailerAppleProductsPartial", Model)
  }
 
-@Html.PartialHelper(Model.CurrentTenant, @ContentTypes.RetailerPartial, Model, "General")
+@Html.PartialHelper(Model.CurrentTenant.Id.ToString(), @ContentTypes.RetailerPartial, Model, "General")
 
 <script type="text/javascript">
     $("#retailerGrid").kendoGrid({
