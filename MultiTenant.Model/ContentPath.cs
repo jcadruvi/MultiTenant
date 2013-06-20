@@ -8,7 +8,7 @@ namespace MultiTenant.Model
 {
     public class ContentPath
     {
-        public int TenantId { get; set; }
+        public string Id { get; set; }
         public string Type { get; set; }
         public string Location { get; set; }
     }
