@@ -25,14 +25,14 @@ namespace MultiTenant.Repository.Repositories
 
             _contentPaths.Add(new ContentPath
             {
-                TenantId = TenantIds.AppleId,
+                Id = TenantIds.AppleId.ToString(),
                 Type = ContentTypes.RetailerPartial,
                 Location = "../../Areas/Apple/Views/Retailer/General"
             });
 
             _contentPaths.Add(new ContentPath
             {
-                TenantId = TenantIds.MicrosoftId,
+                Id = TenantIds.MicrosoftId.ToString(),
                 Type = ContentTypes.RetailerStylesheet,
                 Location = "~/Content/retailer.microsoft.bundle.css"
             });
@@ -65,9 +65,9 @@ namespace MultiTenant.Repository.Repositories
         }
         public static PathRepository Instance { get { return _instance; } }
 
-        public string GetContentLocation(int tenantId, string type)
+        public string GetContentLocation(string tenantId, string type)
         {
-            var content = _contentPaths.FirstOrDefault(c => c.TenantId == tenantId && c.Type == type);
+            var content = _contentPaths.FirstOrDefault(c => c.Id == tenantId && c.Type == type);
             if (content != null)
             {
                 return content.Location;
