@@ -8,7 +8,7 @@ namespace MultiTenant.Model
 {
     public class Link
     {
-        public int TennantId { get; set; }
+        public string Id { get; set; }
         public string Type { get; set; }
         public string Action { get; set; }
         public string Area { get; set; }

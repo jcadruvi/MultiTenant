@@ -17,17 +17,17 @@ namespace MultiTenant.Service.Services
         {
             _repository = LinkRepository.Instance;
         }
-        public Link GetLink(int tenantId, string linkType)
+        public Link GetLink(string id, string linkType)
         {
-            return _repository.GetLink(tenantId, linkType);
+            return _repository.GetLink(id, linkType);
         }
-        public IList<Link> GetLinks(int tenantId, string linkType)
+        public IList<Link> GetLinks(string id, string linkType)
         {
-            return _repository.GetLinks(tenantId, linkType);
+            return _repository.GetLinks(id, linkType);
         }
-        public IList<Link> GetMenuLinks(int tenantId)
+        public IList<Link> GetMenuLinks(string id)
         {
-            return _repository.GetMenuLinks(tenantId);
+            return _repository.GetMenuLinks(id);
         }
     }
 }

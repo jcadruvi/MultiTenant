@@ -9,8 +9,8 @@ namespace MultiTenant.Repository.Interfaces
 {
     public interface ILinkRepository
     {
-        Link GetLink(int tenantId, string linkType);
-        IList<Link> GetLinks(int tenantId, string linkType);
-        IList<Link> GetMenuLinks(int tenantId);
+        Link GetLink(string id, string linkType);
+        IList<Link> GetLinks(string id, string linkType);
+        IList<Link> GetMenuLinks(string id);
     }
 }
