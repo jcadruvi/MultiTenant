@@ -9,7 +9,28 @@
 
 @Styles.Render(@Url.StyleBundle(Model.CurrentTenant, @ContentTypes.RetailerStylesheet, "~/Content/retailer.bundle.css"))
 
-<h2>This is the CORE retailer.</h2>
+<div>
+    <h2>This is the CORE retailer.</h2>
+</div>
+
+@if (Model.CurrentTenant.Id == TenantIds.AppleId)
+{
+    <div>
+        @Html.ActionLink("Apple Retailer content", "RetailerInfo", "Retailer", new {Area = "Apple"}, new {})
+    </div>
+
+    <br/>
+}
+
+@if (AccessHelper.HasAccess(Model.CurrentTenant, AccessTypes.Premium))
+{
+    <div>
+        @Html.ActionLink("Premium Retailer content", "RetailerInfo", "Retailer", new {Area = "Premium"}, new {})
+    </div>
+
+    <br/>
+}
+
 <div id="retailerGrid"></div>
 
 <section class="panel retailerPanel">
