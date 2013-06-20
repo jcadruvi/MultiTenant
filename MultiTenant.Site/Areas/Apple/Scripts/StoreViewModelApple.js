@@ -7,7 +7,7 @@
 
     var baseOnBeforeSubmit = self.onBeforeSubmit;
 
-    self.onBeforeSubmit = function () {
+    self.onBeforeSubmit = function() {
         var i, programFound = false;
         for (i = 0; i < $programDropDowns.length; i++) {
             if ($($programDropDowns[i]).data('kendoComboBox').value()) {
@@ -22,7 +22,7 @@
         }
         $programValidation.css('display', 'none');
         return baseOnBeforeSubmit();
-    }
+    };
 
     return self;
 }
