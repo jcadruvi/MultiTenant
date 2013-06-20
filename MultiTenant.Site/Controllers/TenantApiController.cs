@@ -12,14 +12,19 @@ namespace MultiTenant.Controllers
 {
     public class TenantApiController : BaseApiController
     {
-        private ITenantService _tenantService; 
+        private ITenantService _tenantService;
         public TenantApiController(ITenantService tenantService)
+            : base(tenantService)
         {
             _tenantService = tenantService;
         }
         public Tenant Get()
         {
-            return _tenantService.GetCurrentTenant(Host);
+            if (CurrentTenant == null)
+            {
+                return null;
+            }
+            return _tenantService.GetCurrentTenant(CurrentTenant.Host);
         }
         public IEnumerable<Tenant> GetAll()
         {

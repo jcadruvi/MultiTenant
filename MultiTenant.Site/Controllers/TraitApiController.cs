@@ -12,7 +12,8 @@ namespace MultiTenant.Controllers
     public class TraitApiController : BaseApiController
     {
         private ITraitService _traitService;
-        public TraitApiController(ITraitService traitService)
+        public TraitApiController(ITraitService traitService, ITenantService tenantService)
+            : base(tenantService)
         {
             _traitService = traitService;
         }

@@ -11,7 +11,7 @@ namespace MultiTenant.Controllers
     public class ProgramApiController : BaseApiController
     {
         private IProgramService _programService;
-        public ProgramApiController(IProgramService programService)
+        public ProgramApiController(IProgramService programService, ITenantService tenantService) : base(tenantService)
         {
             _programService = programService;
         }

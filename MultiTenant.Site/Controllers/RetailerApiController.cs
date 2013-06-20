@@ -10,7 +10,7 @@ namespace MultiTenant.Controllers
     public class RetailerApiController : BaseApiController
     {
         private IRetailerService _retailerService;
-        public RetailerApiController(IRetailerService retailerService)
+        public RetailerApiController(IRetailerService retailerService, ITenantService tenantService) : base(tenantService)
         {
             _retailerService = retailerService;
         }

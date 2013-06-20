@@ -11,7 +11,7 @@ namespace MultiTenant.Controllers
     public class SurveyApiController : BaseApiController
     {
         private ISurveyService _surveyService;
-        public SurveyApiController(ISurveyService surveyService)
+        public SurveyApiController(ISurveyService surveyService, ITenantService tenantService) : base(tenantService)
         {
             _surveyService = surveyService;
         }
