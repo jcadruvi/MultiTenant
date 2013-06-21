@@ -1,4 +1,4 @@
-﻿#retailerGrid {
-    position: absolute;
-    top: 450px;
+﻿.retailerPanel {
+    float: left !important;
+    margin: 0 0 0 20px !important;
 }
